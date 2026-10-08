@@ -1,0 +1,1006 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Real Instituto de Estudios Europeos</title>
+<style type="text/css">
+<!--
+p {
+text-indent: 1cm;
+margin: 2em 4em 2em 2em;
+margin-top: 2em
+}
+h3 {
+text-indent: 1cm;
+margin: 2em 4em 2em 2em;
+margin-top: 2em
+}
+li {
+margin: 0em 4em 0em 2em;
+}
+.style11 {
+	font-family: Georgia, "Times New Roman", Times, serif;
+	font-weight: bold;
+}
+-->
+	html {
+		overflow: hidden;
+	}
+	
+#imageFlow {
+		position: absolute;
+		width: 90%;
+		height: 85%;
+		left: 5%;
+		top: 52px;
+		overflow: hidden;
+		background: #99ccff;
+	}
+#imageFlow .diapo {
+		position: absolute;
+		left: 4000px;
+		cursor: pointer;
+		-ms-interpolation-mode: nearest-neighbor;
+	}
+#imageFlow .link {
+		border: dotted #ffff00 1px;
+		margin-left: -1px;
+		margin-bottom: -1px;
+	}
+	#imageFlow .bank {
+		visibility: hidden;
+	}
+	#imageFlow .top {
+		position: absolute;
+		width: 100%;
+		height: 0%;
+		background: #99ccff;
+	}
+#imageFlow .text {
+		position: absolute;
+		left: 0px;
+		width: 100%;
+		bottom: 10%;
+		text-align: center;
+		color: #ffff00;
+		font-family: verdana, arial, Helvetica, sans-serif;
+		z-index: 1000;
+	}
+#imageFlow .title {
+		font-size: 0.9em;
+		font-weight: bold;
+	}
+	#imageFlow .legend {
+		font-size: 0.8em;
+	}
+#imageFlow .scrollbar {
+		position: absolute;
+		left: 10%;
+		bottom: 5%;
+		width: 80%;
+		height: 16px;
+		z-index: 1000;
+	}
+	#imageFlow .track {
+		position: absolute;
+		left: 1%;
+		width: 98%;
+		height: 16px;
+		filter: alpha(opacity=30);
+		opacity: 0.3;
+	}
+	#imageFlow .arrow-left {
+		position: absolute;
+	}
+	#imageFlow .arrow-right {
+		position: absolute;
+		right: 0px;
+	}
+	#imageFlow .bar {
+		position: absolute;
+		height: 16px;
+		left: 25px;
+	}
+
+</style>
+
+<script type="text/javascript">
+<!--
+function MM_swapImgRestore() { //v3.0
+  var i,x,a=document.MM_sr; for(i=0;a&&i<a.length&&(x=a[i])&&x.oSrc;i++) x.src=x.oSrc;
+}
+function MM_preloadImages() { //v3.0
+  var d=document; if(d.images){ if(!d.MM_p) d.MM_p=new Array();
+    var i,j=d.MM_p.length,a=MM_preloadImages.arguments; for(i=0; i<a.length; i++)
+    if (a[i].indexOf("#")!=0){ d.MM_p[j]=new Image; d.MM_p[j++].src=a[i];}}
+}
+
+function MM_findObj(n, d) { //v4.01
+  var p,i,x;  if(!d) d=document; if((p=n.indexOf("?"))>0&&parent.frames.length) {
+    d=parent.frames[n.substring(p+1)].document; n=n.substring(0,p);}
+  if(!(x=d[n])&&d.all) x=d.all[n]; for (i=0;!x&&i<d.forms.length;i++) x=d.forms[i][n];
+  for(i=0;!x&&d.layers&&i<d.layers.length;i++) x=MM_findObj(n,d.layers[i].document);
+  if(!x && d.getElementById) x=d.getElementById(n); return x;
+}
+
+function MM_swapImage() { //v3.0
+  var i,j=0,x,a=MM_swapImage.arguments; document.MM_sr=new Array; for(i=0;i<(a.length-2);i+=3)
+   if ((x=MM_findObj(a[i]))!=null){document.MM_sr[j++]=x; if(!x.oSrc) x.oSrc=x.src; x.src=a[i+2];}
+}
+//-->
+</script>
+
+<script type="text/javascript">
+
+ /*  ========================================================
+        script: image-flow
+        author: Gerard Ferrandez - [Ge1doot]
+          date: March 15, 2008
+          site: https://www.dhteumeuleu.com
+       license: CC-BY-NC - do not remove this notice
+   ========================================================  
+*/
+
+var imf = function () {
+	/* //////////// ==== private methods ==== //////////// */
+	var lf = 0;
+	var instances = [];
+	/* ===== custom getElementsByClass ==== */
+	function getElementsByClass (object, tag, className) {
+		var o = object.getElementsByTagName(tag);
+		for ( var i = 0, n = o.length, ret = []; i < n; i++)
+			if (o[i].className == className) ret.push(o[i]);
+		if (ret.length == 1) ret = ret[0];
+		return ret;
+	}
+	/* ===== crossbrowsers addEvent ==== */
+	function addEvent (o, e, f) {
+		if (window.addEventListener) o.addEventListener(e, f, false);
+		else if (window.attachEvent) r = o.attachEvent('on' + e, f);
+	}
+	/* ===== create image reflexion ==== */
+	function createReflexion (cont, img) {
+		var flx = false;
+		if (document.createElement("canvas").getContext) {
+			/* ---- canvas ---- */
+			flx = document.createElement("canvas");
+			flx.width = img.width;
+			flx.height = img.height;
+			var context = flx.getContext("2d");
+			context.translate(0, img.height);
+			context.scale(1, -1);
+			context.drawImage(img, 0, 0, img.width, img.height);
+			context.globalCompositeOperation = "destination-out";
+			var gradient = context.createLinearGradient(0, 0, 0, img.height * 2);
+			gradient.addColorStop(1, "rgba(255, 255, 255, 0)");
+			gradient.addColorStop(0, "rgba(255, 255, 255, 1)");
+			context.fillStyle = gradient;
+			context.fillRect(0, 0, img.width, img.height * 2);
+		} else {
+			/* ---- DXImageTransform ---- */
+			flx     = document.createElement('img');
+			flx.src = img.src;
+			flx.style.filter = 'flipv progid:DXImageTransform.Microsoft.Alpha(' +
+			                   'opacity=50, style=1, finishOpacity=0, startx=0, starty=0, finishx=0, finishy=' + 
+							   (img.height * .25) + ')';
+		}
+		/* ---- insert Reflexion ---- */
+		flx.style.position = 'absolute';
+		flx.style.left     = '-100px';
+		cont.appendChild(flx);
+		return flx;
+	}
+	/* //////////// ==== ImageFlow Constructor ==== //////////// */
+	function ImageFlow(oCont, size, zoom, border) {
+		this.diapos     = [];
+		this.scr        = false;
+		this.size       = size;
+		this.zoom       = zoom;
+		this.bdw        = border;
+		this.oCont      = oCont;
+		this.oc         = document.getElementById(oCont);
+		this.scrollbar  = getElementsByClass(this.oc,   'div', 'scrollbar');
+		this.text       = getElementsByClass(this.oc,   'div', 'text');
+		this.title      = getElementsByClass(this.text, 'div', 'title');
+		this.legend     = getElementsByClass(this.text, 'div', 'legend');
+		this.bar        = getElementsByClass(this.oc,   'img', 'bar');
+		this.arL        = getElementsByClass(this.oc,   'img', 'arrow-left');
+		this.arR        = getElementsByClass(this.oc,   'img', 'arrow-right');
+		this.bw         = this.bar.width;
+		this.alw        = this.arL.width - 5;
+		this.arw        = this.arR.width - 5;
+		this.bar.parent = this.oc.parent  = this;
+		this.arL.parent = this.arR.parent = this;
+		this.view       = this.back       = -1;
+		this.time_out   = this.time_start;
+		this.time       = 0;
+		this.time_dir   = 1;
+		this.resize();
+		this.oc.onselectstart = function () { return false; }
+		/* ---- create images ---- */
+		var img   = getElementsByClass(this.oc, 'div', 'bank').getElementsByTagName('a');
+		this.NF = img.length;
+		for (var i = 0, o; o = img[i]; i++) {
+			this.diapos[i] = new Diapo(this, i,
+										o.href,
+										o.title || '- ' + i + ' -',
+										o.innerHTML || o.href,
+										o.rel || '',
+										o.target || '_self'
+			);
+		}
+		/* ==== add mouse wheel events ==== */
+		if (window.addEventListener)
+			this.oc.addEventListener('DOMMouseScroll', function(e) {
+				this.parent.scroll(-e.detail);
+			}, false); 
+		else this.oc.onmousewheel = function () {
+			this.parent.scroll(event.wheelDelta);
+			return false;
+		}
+		/* ==== scrollbar drag N drop ==== */
+		this.bar.onmousedown = function (e) {
+			if (!e) e = window.event;
+			var scl = e.screenX - this.offsetLeft;
+			var self = this.parent;
+			/* ---- move bar ---- */
+			this.parent.oc.onmousemove = function (e) { 
+				if (!e) e = window.event;
+				self.bar.style.left = Math.round(Math.min((self.ws - self.arw - self.bw), Math.max(self.alw, e.screenX - scl))) + 'px';
+				self.view = Math.round(((e.screenX - scl) ) / (self.ws - self.alw - self.arw - self.bw) * self.NF);
+				if (self.view != self.back) self.calc();
+				return false;
+			}
+			/* ---- release scrollbar ---- */
+			this.parent.oc.onmouseup = function (e) {
+				self.oc.onmousemove = null;
+				return false;
+			}
+			return false;
+		}
+		/* ==== right arrow ==== */
+		this.arR.onclick = this.arR.ondblclick = function () {
+			if (this.parent.view < this.parent.NF - 1)
+				this.parent.calc(1);
+		}
+		/* ==== Left arrow ==== */
+		this.arL.onclick = this.arL.ondblclick = function () {
+			if (this.parent.view > 0)
+				this.parent.calc(-1);
+		}
+	}
+	/* //////////// ==== ImageFlow prototype ==== //////////// */
+	ImageFlow.prototype = {
+		/* ==== targets ==== */
+		calc : function (inc) {
+			if (inc) this.view += inc;
+			var tw = 0;
+			var lw = 0;
+			var o = this.diapos[this.view];
+			if (o && o.loaded) {
+				/* ---- reset ---- */
+				var ob = this.diapos[this.back];
+				if (ob && ob != o) {
+					ob.img.className = 'diapo';
+					ob.z1 = 1;
+				}
+				/* ---- update legend ---- */
+				this.title.replaceChild(document.createTextNode(o.title), this.title.firstChild);
+				this.legend.replaceChild(document.createTextNode(o.text), this.legend.firstChild);
+				/* ---- update hyperlink ---- */
+				if (o.url) {
+					o.img.className = 'diapo link';
+					window.status = 'hyperlink: ' + o.url;
+				} else {
+					o.img.className = 'diapo';
+					window.status = '';
+				}
+				/* ---- calculate target sizes & positions ---- */
+				o.w1 = Math.min(o.iw, this.wh * .5) * o.z1;
+				var x0 = o.x1 = (this.wh * .5) - (o.w1 * .5);
+				var x = x0 + o.w1 + this.bdw;
+				for (var i = this.view + 1, o; o = this.diapos[i]; i++) {
+					if (o.loaded) {
+						o.x1 = x;
+						o.w1 = (this.ht / o.r) * this.size;
+						x   += o.w1 + this.bdw;
+						tw  += o.w1 + this.bdw;
+					}
+				}
+				x = x0 - this.bdw;
+				for (var i = this.view - 1, o; o = this.diapos[i]; i--) {
+					if (o.loaded) {
+						o.w1 = (this.ht / o.r) * this.size;
+						o.x1 = x - o.w1;
+						x   -= o.w1 + this.bdw;
+						tw  += o.w1 + this.bdw;
+						lw  += o.w1 + this.bdw;
+					}
+				}
+				/* ---- move scrollbar ---- */
+				if (!this.scr && tw) {
+					var r = (this.ws - this.alw - this.arw - this.bw) / tw;
+					this.bar.style.left = Math.round(this.alw + lw * r) + 'px';
+				}
+				/* ---- save preview view ---- */
+				this.back = this.view;
+			}
+		},
+		/* ==== mousewheel scrolling ==== */
+		scroll : function (sc) {
+			if (sc < 0) {
+				if (this.view < this.NF - 1) this.calc(1);
+			} else {
+				if (this.view > 0) this.calc(-1);
+			}
+		},
+		/* ==== resize  ==== */	
+		resize : function () {
+			this.wh = this.oc.clientWidth;
+			this.ht = this.oc.clientHeight;
+			this.ws = this.scrollbar.offsetWidth;
+			this.calc();
+			this.run(true);
+		},
+		/* ==== move all images  ==== */	
+		run : function (res) {
+			var i = this.NF;
+			while (i--) this.diapos[i].move(res);
+		}
+	}
+	/* //////////// ==== Diapo Constructor ==== //////////// */
+	Diapo = function (parent, N, src, title, text, url, target) {
+		this.parent        = parent;
+		this.loaded        = false;
+		this.title         = title;
+		this.text          = text;
+		this.url           = url;
+		this.target        = target;
+		this.N             = N;
+		this.img           = document.createElement('img');
+		this.img.src       = src;
+		this.img.parent    = this;
+		this.img.className = 'diapo';
+		this.x0            = this.parent.oc.clientWidth;
+		this.x1            = this.x0;
+		this.w0            = 0;
+		this.w1            = 0;
+		this.z1            = 1;
+		this.img.parent    = this;
+		this.img.onclick   = function() { this.parent.click(); }
+		this.parent.oc.appendChild(this.img);
+		/* ---- display external link ---- */
+		if (url) {
+			this.img.onmouseover = function () { this.className = 'diapo link';	}
+			this.img.onmouseout  = function () { this.className = 'diapo'; }
+		}
+	}
+	/* //////////// ==== Diapo prototype ==== //////////// */
+	Diapo.prototype = {
+		/* ==== HTML rendering ==== */
+		move : function (res) {
+			if (this.loaded) {
+				var sx = this.x1 - this.x0;
+				var sw = this.w1 - this.w0;
+				if (Math.abs(sx) > 2 || Math.abs(sw) > 2 || res) {
+					/* ---- paint only when moving ---- */
+					this.x0 += sx * .1;
+					this.w0 += sw * .1;
+					if (this.x0 < this.parent.wh && this.x0 + this.w0 > 0) {
+						/* ---- paint only visible images ---- */
+						this.visible = true;
+						var o = this.img.style;
+						var h = this.w0 * this.r;
+						/* ---- diapo ---- */
+						o.left   = Math.round(this.x0) + 'px';
+						o.bottom = Math.floor(this.parent.ht * .25) + 'px';
+						o.width  = Math.round(this.w0) + 'px';
+						o.height = Math.round(h) + 'px';
+						/* ---- reflexion ---- */
+						if (this.flx) {
+							var o = this.flx.style;
+							o.left   = Math.round(this.x0) + 'px';
+							o.top    = Math.ceil(this.parent.ht * .75 + 1) + 'px';
+							o.width  = Math.round(this.w0) + 'px';
+							o.height = Math.round(h) + 'px';
+						}
+					} else {
+						/* ---- disable invisible images ---- */
+						if (this.visible) {
+							this.visible = false;
+							this.img.style.width = '0px';
+							if (this.flx) this.flx.style.width = '0px';
+						}
+					}
+				}
+			} else {
+				/* ==== image onload ==== */
+				if (this.img.complete && this.img.width) {
+					/* ---- get size image ---- */
+					this.iw     = this.img.width;
+					this.ih     = this.img.height;
+					this.r      = this.ih / this.iw;
+					this.loaded = true;
+					/* ---- create reflexion ---- */
+					this.flx    = createReflexion(this.parent.oc, this.img);
+					if (this.parent.view < 0) this.parent.view = this.N;
+					this.parent.calc();
+				}
+			}
+		},
+		/* ==== diapo onclick ==== */
+		click : function () {
+			if (this.parent.view == this.N) {
+				/* ---- click on zoomed diapo ---- */
+				if (this.url) {
+					/* ---- open hyperlink ---- */
+					window.open(this.url, this.target);
+				} else {
+					/* ---- zoom in/out ---- */
+					this.z1 = this.z1 == 1 ? this.parent.zoom : 1;
+					this.parent.calc();
+				}
+			} else {
+				/* ---- select diapo ---- */
+				this.parent.view = this.N;
+				this.parent.calc();
+			}
+			return false;
+		}
+	}
+/* //////////// ==== public methods ==== //////////// */
+	return {
+		/* ==== initialize script ==== */
+		create : function (div, horizon, size, zoom, border, start, interval) {
+			/* ---- instanciate imageFlow ---- */
+			var load = function () {
+				var loaded = false;
+				var i = instances.length;
+				while (i--) if (instances[i].oCont == div) loaded = true;
+				if (!loaded) {
+					/* ---- push new imageFlow instance ---- */
+					instances.push(
+						new ImageFlow(div, horizon, size, zoom, border, start, interval)
+					);
+					/* ---- init script (once) ---- */
+					if (!imf.initialized) {
+						imf.initialized = true;
+						/* ---- window resize event ---- */
+						addEvent(window, 'resize', function () {
+							var i = instances.length;
+							while (i--) instances[i].resize();
+						});
+						/* ---- stop drag N drop ---- */
+						addEvent(document.getElementById(div), 'mouseout', function (e) {
+							if (!e) e = window.event;
+							var tg = e.relatedTarget || e.toElement;
+							if (tg && tg.tagName == 'HTML') {
+								var i = instances.length;
+								while (i--) instances[i].oc.onmousemove = null;
+							}
+							return false;
+						});
+						/* ---- set interval loop ---- */
+						setInterval(function () {
+							var i = instances.length;
+							while (i--) instances[i].run();
+						}, 16);
+					}
+				}
+			}
+			/* ---- window onload event ---- */
+			addEvent(window, 'load', function () { load(); });
+		}
+	}
+}();
+
+/* ==== create imageFlow ==== */
+//          div ID, imagesbank, horizon, size, zoom, border, autoscroll_start, autoscroll_interval
+imf.create("imageFlow", .15, 0.15, 1.8, 20, 8, 1);
+
+    </script>
+
+
+<script type="text/javascript" src="highslide-with-gallery.js"></script>
+<link rel="stylesheet" type="text/css" href="highslide.css" />
+
+<script type="text/javascript">
+hs.graphicsDir = 'graphics/';
+hs.align = 'center';
+hs.transitions = ['expand', 'crossfade'];
+hs.outlineType = 'glossy-dark';
+hs.wrapperClassName = 'dark';
+hs.fadeInOut = true;
+//hs.dimmingOpacity = 0.75;
+
+// Add the controlbar
+if (hs.addSlideshow) hs.addSlideshow({
+	//slideshowGroup: 'group1',
+	interval: 5000,
+	repeat: false,
+	useControls: true,
+	fixedControls: 'fit',
+	overlayOptions: {
+		opacity: .6,
+		position: 'bottom center',
+		hideOnMouseOut: true
+	}
+});
+
+</script>
+
+</head>
+
+<body bgcolor="#99ccff" onload="MM_preloadImages('Images/galeria_fotografias_on.gif','Images/galeria_audio_on.gif','Images/galeria_video_on.gif')">
+<table width="80%" border="0" align="center">
+  <tr>
+    <td width="33%" align="center" valign="middle"><img src="Images/galeria_fotografias_in.gif" width="136" height="35" border="0" /></td>
+    <td width="33%" align="center" valign="middle"><a href="galeria_audio.html" target="_self" onMouseOut="MM_swapImgRestore()" onMouseOver="MM_swapImage('Image2','','Images/galeria_audio_on.gif',1)"><img src="Images/galeria_audio.gif" alt="Galera de Audio" name="Image2" width="136" height="35" border="0"></a></td>
+    <td width="33%" align="center" valign="middle"><a href="galeria_video.html" target="_self" onMouseOut="MM_swapImgRestore()" onMouseOver="MM_swapImage('Image3','','Images/galeria_video_on.gif',1)"><img src="Images/galeria_video.gif" alt="Galera de Video" name="Image3" width="136" height="35" border="0"></a></td>
+  </tr>
+</table>
+<div class="highslide-gallery"; overflow-y: scroll>
+
+    <a href="gal_images/presentacion.jpg" class="highslide" onclick="return hs.expand(this)">
+        <img src="gal_images/th_presentacion.jpg" alt="Presentación"
+             title="Click para agrandar" />
+    </a>
+    <div class="highslide-caption">
+        Presentación del Instituto, 1986.
+        El día 10 de mayo de 1986, en acto conmemorativo del Día de Europa celebrado en la sede central de Ibercaja, en Zaragoza, presidido por Su Alteza Real Don Felipe de Borbón, Príncipe de Asturias, se presentó a la sociedad el nuevo Instituto de Estudios Europeos, fundado en enero, justo en el momento en que el Reino de España se adhería a las Comunidades Europeas.
+        Ante una sala llena, y con asistencia de las primeras autoridades de Aragón, el entonces Director del Instituto se refirió a la importancia de la integración de España en el proceso de integración europea, tras la incorporación efectuada en 1977 al Consejo de Europa, y dijo a Don Felipe: “Encarnáis, Señor, lo mejor de España”.
+    </div>
+
+    <a href="gal_images/presentacion2.jpg" class="highslide" onclick="return hs.expand(this)">
+        <img src="gal_images/th_presentacion2.jpg" alt="Presentación"
+             title="Click para agrandar" />
+    </a>
+    <div class="highslide-caption">
+        Presentación del Programa Máster en Comunidades Europeas
+        El día 10 de noviembre de 1988, el Ministro de Asuntos Exteriores, D. Francisco Fernández Ordóñez, se desplazó a Zaragoza para realizar la presentación de una iniciativa pionera, el Programa Máster en Comunidades Europeas, cuya primera edición se desarrolló con gran éxito en el curso 1988-1989.
+        El acto se celebró en la sede de la Real Sociedad Económica Aragonesa de Amigos del País y contó con la asistencia de las primeras autoridades.
+        Seguidamente, el Sr. Ministro saludó a la Promoción Jacques Delors e impartió una brillante conferencia pública en un abarrotado Salón de plenos de la Diputación Provincial de Zaragoza.
+    </div>
+
+    <a href="gal_images/medalla_rey.jpg" class="highslide" onclick="return hs.expand(this)">
+        <img src="gal_images/th_medalla_rey.jpg" alt="Medalla S.M."
+             title="Click para agrandar" />
+    </a>
+    <div class="highslide-caption">
+        S.M. el Rey Don Juan Carlos I recibe, el 15 de octubre de 2001, en el Palacio de la Zarzuela la primera Medalla de Oro del Real Instituto de Estudios Europeos.
+    </div>
+
+    <a href="gal_images/instalaciones.jpg" class="highslide" onclick="return hs.expand(this)">
+        <img src="gal_images/th_instalaciones.jpg" alt="Instalaciones"
+             title="Click para agrandar" />
+    </a>
+    <div class="highslide-caption">
+        Sala de sesiones en la sede del Real Instituto de Estudios Europeos.
+    </div>
+
+    <a href="gal_images/medalla_barroso.jpg" class="highslide" onclick="return hs.expand(this)">
+        <img src="gal_images/th_medalla_barroso.jpg" alt="Medalla Barroso"
+             title="Click para agrandar" />
+    </a>
+    <div class="highslide-caption">
+        El Presidente de la Comisión de las Comunidades Europeas, Dr. José Manuel Durão Barroso, recibe el 11 de marzo de 2009, en la Representación Permanente de España ante la Unión Europea, en acto presidido por el Embajador D. Carlos Bastarreche, la Medalla e Insignia de Oro del Real Instituto de Estudios Europeos. <a href="noticias/noticia_090311.html" title="Enlace a la noticia" target="_parent">Más información.</a>
+    </div>
+
+    <a href="gal_images/medalla_deboer.jpg" class="highslide" onclick="return hs.expand(this)">
+        <img src="gal_images/th_medalla_deboer.jpg" alt="Medalla De Boer"
+             title="Click para agrandar" />
+    </a>
+    <div class="highslide-caption">
+        La Excma. Sra. Dª Maud de Boer-Buquicchio, Secretaria General Adjunta del Consejo de Europa, recibe la Medalla e Insignia de Oro del Real Instituto de Estudios Europeos en la celebración en Zaragoza del Día de Europa 2011. <a href="noticias/noticia_110509.html" title="Enlace a la noticia" target="_parent">Más información.</a>
+    </div>
+
+    <a href="gal_images/medalla_deboer2.jpg" class="highslide" onclick="return hs.expand(this)">
+        <img src="gal_images/th_medalla_deboer2.jpg" alt="Medalla De Boer"
+             title="Click para agrandar" />
+    </a>
+    <div class="highslide-caption">
+        El 5 de mayo de 2011 se celebró en el Salón Aragón de Ibercaja el Día de Europa, con cerca de 300 asistentes. En el curso del acto tomaron la palabra el Secretario de Estado de Asuntos Exteriores, D. Juan Antonio Yáñez-Barnuevo y la Secretaria General Adjunta del Consejo de Europa, Dra. Maud de Boer-Buquicchio, quien recibió de manos del Secretario de Estado y del Presidente del Instituto, D. Maximiliano Bernad, la Insignia de Oro y la Medalla del Instituto. Cerró el acto el Presidente de Ibercaja, D. Amado Franco Lahoz <a href="noticias/noticia_110509.html" title="Enlace a la noticia" target="_parent">Más información.</a>
+    </div>
+
+    <a href="gal_images/firma_stages.jpg" class="highslide" onclick="return hs.expand(this)">
+        <img src="gal_images/th_firma_stages.jpg" alt="Firma stages"
+             title="Click para agrandar" />
+    </a>
+    <div class="highslide-caption">
+        El Patio de la Infanta de Ibercaja acogió en Zaragoza el 5 de mayo de 2011 el acto de firma del Protocolo de acuerdo entre el Consejo de Europa, representado por la Secretaria General Adjunta, Ibercaja, la Real Sociedad Económica Aragonesa de Amigos del País y el Real Instituto de Estudios Europeos, para "stages" en dicha Organización internacional, en presencia del Secretario de Estado de Asuntos Exteriores y para Iberoamérica, D. Juan Antonio Yáñez-Barnuevo.
+    </div>
+
+    <a href="gal_images/audiencia_principe.jpg" class="highslide" onclick="return hs.expand(this)">
+        <img src="gal_images/th_audiencia_principe.jpg" alt="Audiencia príncipe"
+             title="Click para agrandar" />
+    </a>
+    <div class="highslide-caption">
+        El 30 de mayo de 2011, S.A.R. el Príncipe de Asturias recibió a una representación del Real Instituto de Estudios Europeos en su 25 aniversario.
+    </div>
+
+    <a href="gal_images/audiencia_principe2.jpg" class="highslide" onclick="return hs.expand(this)">
+        <img src="gal_images/th_audiencia_principe2.jpg" alt="Audiencia príncipe"
+             title="Click para agrandar" />
+    </a>
+    <div class="highslide-caption">
+        El 30 de mayo de 2011, S.A.R. el Príncipe de Asturias recibió a una representación del Real Instituto de Estudios Europeos en su 25 aniversario.
+    </div>
+
+    <a href="gal_images/calleja.jpg" class="highslide" onclick="return hs.expand(this)">
+        <img src="gal_images/th_calleja.jpg" alt="Daniel Calleja"
+             title="Click para agrandar" />
+    </a>
+    <div class="highslide-caption">
+        Daniel Calleja, Enviado Especial para las PYMES de la Comisión Europea, firmando el Libro de Honor del Real Instituto de Estudios Europeos, el 25 de noviembre de 2011.
+    </div>
+
+    <a href="gal_images/fonseca.jpg" class="highslide" onclick="return hs.expand(this)">
+        <img src="gal_images/th_fonseca.jpg" alt="Francisco Fonseca"
+             title="Click para agrandar" />
+    </a>
+    <div class="highslide-caption">
+        El Director de la Representación en España de la Comisión Europea, Francisco Fonseca, firma en el Libro de Honor del Real Instituto de Estudios Europeos, el 2 de diciembre de 2011.
+    </div>
+
+    <a href="gal_images/jornadas25_1.jpg" class="highslide" onclick="return hs.expand(this)">
+        <img src="gal_images/th_jornadas25_1.jpg" alt="Jornadas 25 años de España en la Unión Europea y la crisis"
+             title="Click para agrandar" />
+    </a>
+    <div class="highslide-caption">
+        Inauguración de las Jornadas "25 años de España en la Unión Europea y la crisis", presidida por el Presidente de la Diputación de Zaragoza Luis María Beamonte, el día 14 de diciembre de 2011.
+    </div>
+
+    <a href="gal_images/jornadas25_2.jpg" class="highslide" onclick="return hs.expand(this)">
+        <img src="gal_images/th_jornadas25_2.jpg" alt="Jornadas 25 años de España en la Unión Europea y la crisis"
+             title="Click para agrandar" />
+    </a>
+    <div class="highslide-caption">
+        Clausura de las Jornadas "25 años de España en la Unión Europea y la crisis", presidida por el Consejero de Hacienda y Administración pública del Gobierno de Aragón Mario Garcés.
+    </div>
+
+    <a href="gal_images/medalla_tajani1.jpg" class="highslide" onclick="return hs.expand(this)">
+        <img src="gal_images/th_medalla_tajani1.jpg" alt="Medalla Tajani"
+             title="Click para agrandar" />
+    </a>
+    <div class="highslide-caption">
+        El día 17 de abril de 2012, el eurodiputado y ex-Ministro D. Jaime Mayor Oreja entregó al Vicepresidente de la Comisión Europea, D. Antonio Tajani, la Medalla del RIEE
+    </div>
+
+    <a href="gal_images/medalla_tajani2.jpg" class="highslide" onclick="return hs.expand(this)">
+        <img src="gal_images/th_medalla_tajani2.jpg" alt="Medalla Tajani"
+             title="Click para agrandar" />
+    </a>
+    <div class="highslide-caption">
+        El día 17 de abril de 2012, el eurodiputado y ex-Ministro D. Jaime Mayor Oreja entregó al Vicepresidente de la Comisión Europea, D. Antonio Tajani, la Medalla del RIEE
+    </div>
+
+    <a href="gal_images/medalla_tajani3.jpg" class="highslide" onclick="return hs.expand(this)">
+        <img src="gal_images/th_medalla_tajani3.jpg" alt="Medalla Tajani"
+             title="Click para agrandar" />
+    </a>
+    <div class="highslide-caption">
+        El día 17 de abril de 2012, el eurodiputado y ex-Ministro D. Jaime Mayor Oreja entregó al Vicepresidente de la Comisión Europea, D. Antonio Tajani, la Medalla del RIEE
+    </div>
+
+    <a href="gal_images/medalla_tajani4.jpg" class="highslide" onclick="return hs.expand(this)">
+        <img src="gal_images/th_medalla_tajani4.jpg" alt="Medalla Tajani"
+             title="Click para agrandar" />
+    </a>
+    <div class="highslide-caption">
+        El día 17 de abril de 2012, el eurodiputado y ex-Ministro D. Jaime Mayor Oreja entregó al Vicepresidente de la Comisión Europea, D. Antonio Tajani, la Medalla del RIEE
+    </div>
+
+    <a href="gal_images/diezhochleitner.jpg" class="highslide" onclick="return hs.expand(this)">
+        <img src="gal_images/th_diezhochleitner.jpg" alt="Díez-Hochleitner"
+             title="Click para agrandar" />
+    </a>
+    <div class="highslide-caption">
+        El día 29 de mayo de 2012, el Embajador de España ante la OCDE, Ricardo Díez-Hochleitner, interviene en el Máster en Unión Europea del Real Instituto de Estudios Europeos.
+    </div>
+
+    <a href="gal_images/diezhochleitner2.jpg" class="highslide" onclick="return hs.expand(this)">
+        <img src="gal_images/th_diezhochleitner2.jpg" alt="Díez-Hochleitner"
+             title="Click para agrandar" />
+    </a>
+    <div class="highslide-caption">
+        El día 29 de mayo de 2012, el Embajador de España ante la OCDE, Ricardo Díez-Hochleitner, interviene en el Máster en Unión Europea del Real Instituto de Estudios Europeos.
+    </div>
+
+    <a href="gal_images/romero.jpg" class="highslide" onclick="return hs.expand(this)">
+        <img src="gal_images/th_romero.jpg" alt="Luis Romero"
+             title="Click para agrandar" />
+    </a>
+    <div class="highslide-caption">
+        El Director General del Servicio jurídico de la Comisión Europea, y ex-Director General de Presupuestos, Luis Romero, visitó el Real Instituto de Estudios Europeos.
+    </div>
+
+    <a href="gal_images/morenes.jpg" class="highslide" onclick="return hs.expand(this)">
+        <img src="gal_images/th_morenes.jpg" alt="Pedro Morenés"
+             title="Click para agrandar" />
+    </a>
+    <div class="highslide-caption">
+        El Ministro de Defensa, D. Pedro Morenés Eulate, aparece con los integrantes de la promoción y los Profesores Maximiliano Bernad y Juan Carlos Usero
+    </div>
+
+    <a href="gal_images/morenes2.jpg" class="highslide" onclick="return hs.expand(this)">
+        <img src="gal_images/th_morenes2.jpg" alt="Pedro Morenés"
+             title="Click para agrandar" />
+    </a>
+    <div class="highslide-caption">
+        Un momento del encuentro del Sr. Ministro de Defensa con los integrantes de la 24ª. edición del Programa Máster en Unión Europea del Real Instituto de Estudios Europeos, el 4 de junio de 2012.
+    </div>
+
+    <a href="gal_images/garces.jpg" class="highslide" onclick="return hs.expand(this)">
+        <img src="gal_images/th_garces.jpg" alt="Mario Garcés"
+             title="Click para agrandar" />
+    </a>
+    <div class="highslide-caption">
+        El Subsecretario del Ministerio de Fomento, D. Mario Garcés, intervino el 4 de junio de 2012 en las sesiones del 24º Programa Máster en Unión Europea, hablando sobre infraestructuras y transporte en la Unión Europea.
+    </div>
+
+    <a href="gal_images/mendivil.jpg" class="highslide" onclick="return hs.expand(this)">
+        <img src="gal_images/th_mendivil.jpg" alt="Rafael Mendívil"
+             title="Click para agrandar" />
+    </a>
+    <div class="highslide-caption">
+        El Subsecretario de Asuntos Exteriores y de Cooperación, D. Rafael Mendívil, procedió a la entrega en el Salón de Embajadores del Palacio de Santa Cruz de Diplomas de Estudios Superiores Europeos en el curso de las sesiones en Madrid del 24º. Programa Máster en Unión Europea.
+    </div>
+
+    <a href="gal_images/peralta.jpg" class="highslide" onclick="return hs.expand(this)">
+        <img src="gal_images/th_peralta.jpg" alt="Esteban Peralta"
+             title="Click para agrandar" />
+    </a>
+    <div class="highslide-caption">
+        Esteban Peralta (primero a la izquierda), funcionario de la Corte Penal Internacional (La Haya), en una instantánea tomada en 1986 en el Palacio de la Moncloa con el Presidente del Gobierno, Felipe González, durante una de las visitas del Programa Máster del Real Instituto de Estudios Europeos (de cuya Junta forma parte) a Presidentes del Gobierno.
+    </div>
+
+    <a href="gal_images/peralta2.jpg" class="highslide" onclick="return hs.expand(this)">
+        <img src="gal_images/th_peralta2.jpg" alt="Esteban Peralta"
+             title="Click para agrandar" />
+    </a>
+    <div class="highslide-caption">
+        Esteban Peralta, durante su
+        intervención sobre la Corte Penal Internacional en la Academia Europea de
+        Jaca de 2011.
+    </div>
+
+    <a href="gal_images/garces2.jpg" class="highslide" onclick="return hs.expand(this)">
+        <img src="gal_images/th_garces2.jpg" alt="Mario Garcés"
+             title="Click para agrandar" />
+    </a>
+    <div class="highslide-caption">
+        El 16 de julio de 2012, D. Mario Garcés, Subsecretario del Ministerio de Fomento, inauguró las sesiones de la Academia Europea de Jaca de 2012
+    </div>
+
+    <a href="gal_images/mendivil2.jpg" class="highslide" onclick="return hs.expand(this)">
+        <img src="gal_images/th_mendivil2.jpg" alt="Rafael Mendívil"
+             title="Click para agrandar" />
+    </a>
+    <div class="highslide-caption">
+        El Subsecretario del Ministerio de Asuntos Exteriores y de Cooperación, D. Rafael Mendívil, inauguró el 17 de julio de 2012 el IV Curso sobre Función pública internacional y europea, que cubrió todas sus plazas, en la Sala Pirineos del Palacio de Congresos de Jaca.
+    </div>
+
+    <a href="gal_images/gracia.jpg" class="highslide" onclick="return hs.expand(this)">
+        <img src="gal_images/th_gracia.jpg" alt="Jesús Gracia Aldaz"
+             title="Click para agrandar" />
+    </a>
+    <div class="highslide-caption">
+        El Secretario de Estado de Cooperación internacional y para Iberoamérica, D. Jesús Gracia Aldaz, clausuró el 20 de julio de 2012 la 28ª. Edición de la Academia Europea de Jaca, en acto presidido por el Consejero de Economía y Empleo del Gobierno de Aragón, D. Francisco Bono y con la Sala Europa llena de público.
+    </div>
+
+    <a href="gal_images/escolano1.jpg" class="highslide" onclick="return hs.expand(this)">
+        <img src="gal_images/th_escolano1.jpg" alt="Román Escolano"
+             title="Click para agrandar" />
+    </a>
+    <div class="highslide-caption">
+        El Presidente del ICO, D. Román Escolano, firma en el Libro de Honor del RIEE.
+    </div>
+
+    <a href="gal_images/escolano2.jpg" class="highslide" onclick="return hs.expand(this)">
+        <img src="gal_images/th_escolano2.jpg" alt="Román Escolano"
+             title="Click para agrandar" />
+    </a>
+    <div class="highslide-caption">
+        D. Román Escolano, con los integrantes de la Promoción Manuel Pizarro (2012-2013)
+    </div>
+
+    <a href="gal_images/escolano3.jpg" class="highslide" onclick="return hs.expand(this)">
+        <img src="gal_images/th_escolano3.jpg" alt="Román Escolano"
+             title="Click para agrandar" />
+    </a>
+    <div class="highslide-caption">
+        El Presidente del ICO, D. Román Escolano, impartiendo su Lección inaugural de la 25ª. edición del Programa Máster en Unión Europea.
+    </div>
+
+    <a href="gal_images/elorza.jpg" class="highslide" onclick="return hs.expand(this)">
+        <img src="gal_images/th_elorza.jpg" alt="Román Escolano"
+             title="Click para agrandar" />
+    </a>
+    <div class="highslide-caption">
+        Javier Elorza, Embajador de España en Italia, y anteriormente ante la Unión Europea, en Francia, Rusia e India, con integrantes de la 25ª. promoción del Programa Máster profesional en Unión Europea (2012-2013) y algunos de los profesores responsables del mismo.
+    </div>
+
+
+    <a href="gal_images/dastis1.jpg" class="highslide" onclick="return hs.expand(this)">
+        <img src="gal_images/th_dastis1.jpg" alt="Alfonso Dastis"
+             title="Click para agrandar" />
+    </a>
+    <div class="highslide-caption">
+        El Embajador de España ante la Unión Europea, D. Alfonso Dastis, firma en el Libro de Honor del RIEE.
+    </div>
+
+
+    <a href="gal_images/dastis2.jpg" class="highslide" onclick="return hs.expand(this)">
+        <img src="gal_images/th_dastis2.jpg" alt="Alfonso Dastis"
+             title="Click para agrandar" />
+    </a>
+    <div class="highslide-caption">
+        El Embajador, Alfonso Dastis, con los integrantes de la Promoción Manuel Pizarro, tras su intervención en el Programa Máster profesional en Unión Europea.
+    </div>
+
+
+    <a href="gal_images/sainz.jpg" class="highslide" onclick="return hs.expand(this)">
+        <img src="gal_images/th_sainz.jpg" alt="Sainz de Vicuña"
+             title="Click para agrandar" />
+    </a>
+    <div class="highslide-caption">
+        Un momento de la ceremonia de entrega de la Medalla del Real Instituto de Estudios Europeos a D. Antonio Sáinz de Vicuña, Director General del Servicio Jurídico del Banco Central Europeo
+    </div>
+
+
+    <a href="gal_images/sainz2.jpg" class="highslide" onclick="return hs.expand(this)">
+        <img src="gal_images/th_sainz2.jpg" alt="Sainz de Vicuña"
+             title="Click para agrandar" />
+    </a>
+    <div class="highslide-caption">
+        Antonio Sáinz de Vicuña, tras recibir la medalla del Real Instituto de Estudios Europeos, con los integrantes de la promoción Mario Draghi (2013-2014)
+    </div>
+
+    <a href="gal_images/tajani.jpg" class="highslide" onclick="return hs.expand(this)">
+        <img src="gal_images/th_tajani.jpg" alt="Tajani"
+             title="Click para agrandar" />
+    </a>
+    <div class="highslide-caption">
+        El 3 de abril de 2014, en el Palacio de la Aljafería, el Presidente de las Cortes de Aragón, Excmo. Sr. D. José Ángel Biel, preside el solemne acto en el que el Vicepresidente de la Comisión Europea, responsable de Industria y Emprendimiento, Excmo. Sr. D. Antonio Tajani, recibirá la Insignia de Oro del Real Instituto de Estudios Europeos.
+    </div>
+
+    <a href="gal_images/tajani2.jpg" class="highslide" onclick="return hs.expand(this)">
+        <img src="gal_images/th_tajani2.jpg" alt="Tajani"
+             title="Click para agrandar" />
+    </a>
+    <div class="highslide-caption">
+        El 3 de abril de 2014, en el Palacio de la Aljafería, el Presidente de las Cortes de Aragón, Excmo. Sr. D. José Ángel Biel, preside el solemne acto en el que el Vicepresidente de la Comisión Europea, responsable de Industria y Emprendimiento, Excmo. Sr. D. Antonio Tajani, recibirá la Insignia de Oro del Real Instituto de Estudios Europeos.
+    </div>
+
+
+    <a href="gal_images/gracia2.jpg" class="highslide" onclick="return hs.expand(this)">
+        <img src="gal_images/th_gracia2.jpg" alt="Jesús Gracia"
+             title="Click para agrandar" />
+    </a>
+    <div class="highslide-caption">
+        El 24 de junio de 2014, el Excmo. Sr. D. Jesús Gracia, Secretario de Estado de Cooperación internacional y para Iberoamérica, imparte la Lección de clausura del 26º. Programa Máster profesional en Unión Europea.
+    </div>
+
+    <a href="gal_images/gracia3.jpg" class="highslide" onclick="return hs.expand(this)">
+        <img src="gal_images/th_gracia3.jpg" alt="Jesús Gracia"
+             title="Click para agrandar" />
+    </a>
+    <div class="highslide-caption">
+        El 24 de junio de 2014, el Excmo. Sr. D. Jesús Gracia, Secretario de Estado de Cooperación internacional y para Iberoamérica, imparte la Lección de clausura del 26º. Programa Máster profesional en Unión Europea.
+    </div>
+
+
+    <a href="gal_images/vicuna.jpg" class="highslide" onclick="return hs.expand(this)">
+        <img src="gal_images/th_vicuna.jpg" alt="Sáinz de Vicuña"
+             title="Click para agrandar" />
+    </a>
+    <div class="highslide-caption">
+        El 15 de diciembre de 2014, el exdirector General del Servicio jurídico del Banco Central Europeo, Excmo. Sr. D. Antonio Sáinz de Vicuña, imparte la Lección inaugural del 27º. Programa Máster en Unión Europea, sobre El mercado común de los valores.
+    </div>
+
+
+    <a href="gal_images/vicuna2.jpg" class="highslide" onclick="return hs.expand(this)">
+        <img src="gal_images/th_vicuna2.jpg" alt="Sáinz de Vicuña"
+             title="Click para agrandar" />
+    </a>
+    <div class="highslide-caption">El 27 de abril de 2015, en la nueva sede del Banco Central Europeo, en Fráncfort, la Excma. Sra. Dª. Margarita Delgado, Directora General Adjunta de Supervisión, hace entrega a quien ha sido durante muchos años el Director General del Servicio jurídico del BCE, Excmo. Sr. D. Antonio Sáinz de Vicuña, de la Insignia de Oro del Real Instituto de Estudios Europeos</div>
+
+
+    <a href="gal_images/biel.jpg" class="highslide" onclick="return hs.expand(this)">
+        <img src="gal_images/th_biel.jpg" alt="Biel"
+             title="Click para agrandar" />
+    </a>
+    <div class="highslide-caption">El 13 de mayo de 2015, el Presidente de las Cortes de Aragón, Excmo. Sr. D. José Ángel Biel, se dirige a los integrantes de la 27ª. promoción del Programa Máster en Unión Europea durante su visita al Real Instituto de Estudios Europeos y firma en el libro de honor</div>
+
+
+    <a href="gal_images/audiencia_rey1.jpg" class="highslide" onclick="return hs.expand(this)">
+        <img src="gal_images/th_audiencia_rey1.jpg" alt="Felipe VI"
+             title="Click para agrandar" />
+    </a>
+    <div class="highslide-caption">El 11 de mayo de 2016, Su Majestad el Rey recibe el saludo del presidente de Real Instituto de Estudios Europeos, Maximiliano Bernad y Álvarez de Eulate</div>
+
+
+    <a href="gal_images/audiencia_rey2.jpg" class="highslide" onclick="return hs.expand(this)">
+        <img src="gal_images/th_audiencia_rey2.jpg" alt="Felipe VI"
+             title="Click para agrandar" />
+    </a>
+    <div class="highslide-caption">El 11 de mayo de 2016, Don Felipe recibe de manos del presidente del Real Instituto de Estudios Europeos la Medalla e Insignia de Oro de ese Real Instituto</div>
+
+
+    <a href="gal_images/audiencia_rey3.jpg" class="highslide" onclick="return hs.expand(this)">
+        <img src="gal_images/th_audiencia_rey3.jpg" alt="Felipe VI"
+             title="Click para agrandar" />
+    </a>
+    <div class="highslide-caption">Don Felipe tras recibir el galardón durante la audiencia</div>
+
+
+    <a href="gal_images/audiencia_rey4.jpg" class="highslide" onclick="return hs.expand(this)">
+        <img src="gal_images/th_audiencia_rey4.jpg" alt="Felipe VI"
+             title="Click para agrandar" />
+    </a>
+    <div class="highslide-caption">Su Majestad el Rey junto a las personas que integran la representación del Real Instituto de Estudios Europeos</div>
+
+
+    <a href="gal_images/audiencia_rey5.jpg" class="highslide" onclick="return hs.expand(this)">
+        <img src="gal_images/th_audiencia_rey5.jpg" alt="Felipe VI"
+             title="Click para agrandar" />
+    </a>
+    <div class="highslide-caption">Momento en que el presidente del Real Instituto de Estudios Europeos impone la medalla e insignia a Su Majestad el Rey</div>
+
+
+    <a href="gal_images/audiencia_rey5.jpg" class="highslide" onclick="return hs.expand(this)">
+        <img src="gal_images/th_audiencia_rey5.jpg" alt="Felipe VI"
+             title="Click para agrandar" />
+    </a>
+    <div class="highslide-caption">Momento en que el presidente del Real Instituto de Estudios Europeos impone la medalla e insignia a Su Majestad el Rey</div>
+
+
+    <a href="gal_images/sainz3.jpg" class="highslide" onclick="return hs.expand(this)">
+        <img src="gal_images/th_sainz3.jpg" alt="Felipe VI"
+             title="Click para agrandar" />
+    </a>
+    <div class="highslide-caption">El 15 de diciembre de 2014, el ex-Director General del Servicio jurídico del Banco Central Europeo, D. Antonio Sáinz de Vicuña, firma en el Libro de Honor del Real Instituto de Estudios Europeos</div>
+
+
+    <a href="gal_images/solana1.jpg" class="highslide" onclick="return hs.expand(this)">
+        <img src="gal_images/th_solana1.jpg" alt="Felipe VI"
+             title="Click para agrandar" />
+    </a>
+    <div class="highslide-caption">El 15 de febrero de 2018 se celebró en el Caixafórum de Zaragoza un Acto de Homenaje a la Transición democrática española bajo la presidencia de D. Javier Solana Madariaga</div>
+
+    <a href="gal_images/solana2.jpg" class="highslide" onclick="return hs.expand(this)">
+        <img src="gal_images/th_solana2.jpg" alt="Felipe VI"
+             title="Click para agrandar" />
+    </a>
+    <div class="highslide-caption">El 15 de febrero de 2018 se celebró en el Caixafórum de Zaragoza un Acto de Homenaje a la Transición democrática española bajo la presidencia de D. Javier Solana Madariaga</div>
+
+    <a href="gal_images/solana3.jpg" class="highslide" onclick="return hs.expand(this)">
+        <img src="gal_images/th_solana3.jpg" alt="Felipe VI"
+             title="Click para agrandar" />
+    </a>
+    <div class="highslide-caption">El 15 de febrero de 2018 se celebró en el Caixafórum de Zaragoza un Acto de Homenaje a la Transición democrática española bajo la presidencia de D. Javier Solana Madariaga</div>
+
+    <a href="gal_images/solana4.jpg" class="highslide" onclick="return hs.expand(this)">
+        <img src="gal_images/th_solana4.jpg" alt="Felipe VI"
+             title="Click para agrandar" />
+    </a>
+    <div class="highslide-caption">El 15 de febrero de 2018 se celebró en el Caixafórum de Zaragoza un Acto de Homenaje a la Transición democrática española bajo la presidencia de D. Javier Solana Madariaga</div>
+ 
+	<a href="gal_images/gonzalez1.jpg" class="highslide" onclick="return hs.expand(this)">
+        <img src="gal_images/th_gonzalez1.jpg" alt="Felipe González"
+             title="Click para agrandar" />
+    </a>
+    <div class="highslide-caption">El exPresidente del Gobierno D. Felipe González, en su intervención previa en la sede del Real Instituto  el 1 de diciembre de 2015 antes de impartir la Lección inaugural del Programa Máster en Unión Europea. A su derecha, la exministra de Asuntos Exteriores Dª. Trinidad Jiménez, y a su izquierda el exsecretario de Estado de Asuntos Exteriores y exembajador en la ONU D. Juan Antonio Yáñez-Barnuevo.</div>
+	
+	<a href="gal_images/gonzalez2.jpg" class="highslide" onclick="return hs.expand(this)">
+        <img src="gal_images/th_gonzalez2.jpg" alt="Felipe González"
+             title="Click para agrandar" />
+    </a>
+    <div class="highslide-caption">El exPresidente del Gobierno D. Felipe González, en su intervención previa en la sede del Real Instituto  el 1 de diciembre de 2015 antes de impartir la Lección inaugural del Programa Máster en Unión Europea. A su derecha, la exministra de Asuntos Exteriores Dª. Trinidad Jiménez, y a su izquierda el exsecretario de Estado de Asuntos Exteriores y exembajador en la ONU D. Juan Antonio Yáñez-Barnuevo.</div>
+    
+
+
+</div>
+
+</body>
+</html>
