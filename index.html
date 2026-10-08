@@ -1,191 +1,176 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="es" lang="es">
+<!DOCTYPE html>
+<html lang="es">
 <head>
 <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Real Instituto de Estudios Europeos</title>
-<meta name="title" content="Real Instituto de Estudios Europeos" />
-<meta name="robots" content="index,follow" />
-<meta name="author" content="Real Instituto de Estudios Europeos" />
-<meta http-equiv="content-language" content="es" />
-<meta name="description" content="El Real Instituto de Estudios Europeos organiza un Máster en Unión Europea, además de otras actividades como la Academia Europea de Jaca." />
-<meta name="keywords" content="Real Instituto de Estudios Europeos, RIEE, R.I.E.E., Máster, Unión Europea, Estudios Europeos, Zaragoza, Academia Europea de Jaca, UE" />
-<meta name="lang" content="es" />
-<meta name="locality" content="Zaragoza, España" />
-<meta http-equiv="Pragma" content="no-cache" />
-<meta http-equiv="Expires" content="-1" />
-<meta name="google-site-verification" content="5UEkrn2yr_iAI1cgHmj7YfRRmA7h6Fovp0nZFsMIPZ8" />
-<link rel="stylesheet" type="text/css" href="styles.css" />
+<meta name="description" content="El Real Instituto de Estudios Europeos organiza un Máster en Unión Europea, además de otras actividades como la Academia Europea de Jaca.">
+<meta name="keywords" content="Real Instituto de Estudios Europeos, RIEE, R.I.E.E., Máster, Unión Europea, Estudios Europeos, Zaragoza, Academia Europea de Jaca, UE">
+<meta name="author" content="Real Instituto de Estudios Europeos">
+<meta name="robots" content="index,follow">
+<meta name="google-site-verification" content="5UEkrn2yr_iAI1cgHmj7YfRRmA7h6Fovp0nZFsMIPZ8">
+<link rel="stylesheet" href="styles.css">
 <script src="slideshow.js"></script>
-<script src="rolloverimages.js"></script>
 <style>
-<!--
-.style12 {
-font-size: 14px;
-color: #FFFF00;
+body {
+	margin: 8px;
+	background-color: #003366;
 }
--->
+img {
+	border: 0;
+	vertical-align: top;
+}
+
+/* Cabecera */
+.cabecera {
+	margin: 2px 0 70px;
+	text-align: center;
+}
+.cabecera img {
+	max-width: 100%;
+	height: auto;
+}
+
+/* Dos columnas: enlaces e imágenes a la izquierda, citas y noticias a la derecha */
+.columnas {
+	display: flex;
+	justify-content: center;
+	align-items: flex-start;
+	gap: 15px;
+}
+.izquierda {
+	width: 400px;
+	flex-shrink: 0;
+	text-align: center;
+}
+.derecha {
+	width: 730px;
+	flex-shrink: 0;
+}
+
+/* Botones con imagen alternativa al pasar el ratón */
+.boton {
+	display: inline-block;
+}
+.boton .on,
+.boton:hover .off,
+.boton:focus .off {
+	display: none;
+}
+.boton:hover .on,
+.boton:focus .on {
+	display: inline;
+}
+
+.galeria {
+	margin-top: 40px;
+}
+.galeria .boton {
+	display: block;
+	text-align: left;
+}
+.fotos {
+	margin-top: 12px;
+}
+/* Contenedores de los pases de diapositivas: slideshow.js pone aquí la imagen siguiente como fondo para el fundido */
+.diapositivas {
+	margin: 0 auto 4px;
+	width: 300px;
+	height: 225px;
+}
+#CitasBackground {
+	margin: 52px 0 30px 8px;
+	width: 306px;
+	height: 64px;
+}
+
+.noticias iframe {
+	display: block;
+	margin-top: 4px;
+	width: 730px;
+	max-width: 100%;
+	height: 900px;
+	border: 0;
+}
+
+.pie {
+	margin: 16px 0 8px;
+	text-align: center;
+}
+
+/* Pantallas estrechas: una sola columna */
+@media (max-width: 1160px) {
+	.columnas {
+		flex-direction: column;
+		align-items: center;
+	}
+	/* Las columnas se deshacen para ordenar sus elementos por separado */
+	.izquierda,
+	.derecha {
+		display: contents;
+	}
+	.acerca { order: 1; }
+	.comite { order: 2; margin-top: 20px; }
+	#CitasBackground { order: 3; margin: 30px auto 20px; }
+	.noticias { order: 4; width: 100%; max-width: 730px; }
+	.galeria { order: 5; width: 100%; max-width: 400px; }
+	.columnas img {
+		max-width: 100%;
+		height: auto;
+	}
+}
 </style>
 </head>
-<body onload="MM_preloadImages('Images/i_master6_on.png','Images/i_jaca_on.png','Images/i_dese_on.png','Images/i_funcpub_on.png','Images/i_noticias_on.png','Images/i_nuevos_on.png','Images/i_acerca_on.png','Images/i_imagenes_on.png','Images/lacaixa_on.png','Images/i_nueva_doble_titulacion_on.png', 'Images/i_comite_on.png')" style="background-color: rgb(0, 51, 102);">
-<table align="center" border="0" width="1000">
-<tbody>
-<tr>
-<td colspan="3" align="center" width="904"><img src="Images/i_riee35.png" alt="RIEE" name="Image8" id="Image8" border="0" height="210" width="696" /></td>
-</tr>
-<tr>
-<td colspan="2">
-<br />
-<br />
-</td>
-</tr>
-<!--
-<tr>
-<td align="center" width="370"><a href="Images/cartel_31_master_mod.png" onmouseout="MM_swapImgRestore()" onmouseover="MM_swapImage('Image77','','Images/i_nueva_doble_titulacion_on.png',1)"><img src="Images/i_nueva_doble_titulacion.png" alt="Nueva doble titulación" name="Image77" id="Image77" border="0" height="37" width="391" /></a>
-</td>
-<tr>
--->
-<tr>
-<!--
-<td align="center" width="370"><a href="master.html" onmouseout="MM_swapImgRestore()" onmouseover="MM_swapImage('Image7','','Images/i_master6_on.png',1)"><img src="Images/i_master6.png" alt="MÃ¡ster profesional en UniÃ³n Europea" name="Image7" id="Image7" border="0" height="355" width="401" /></a>
--->
-<td align="center" width="370"><img src="Images/citas_0.gif" name="Image7" id="Image7" border="0" height="355" width="401" />
+<body>
 
-<br /><br />
-</td>
-<td width="630">
-	
-	<div height="200">
-	<a href="comite.html" onmouseout="MM_swapImgRestore()" onmouseover="MM_swapImage('ImageC','','Images/i_comite_on.png',1)"><img src="Images/i_comite.png" alt="Comité de honor" name="ImageC" id="ImageC" border="0" height="46" width="215" />
-	<br><br><br><br>
-	</div>
-    <div id="CitasBackground" style="" align="left">
-        <img src="Images/citas_0.gif" xalt="" name="Citas" id="Citas" height="64" width="306" />
-        <script type="text/javascript">
-            RunSlideShow("Citas", "CitasBackground", "Images/citas_1.gif;Images/citas_2.gif;Images/citas_3.gif;"
-                + "Images/citas_4.gif;Images/citas_5.gif;Images/citas_6.gif;Images/citas_7.gif;"
-                + "Images/citas_8.gif;Images/citas_9.gif;Images/citas_10.gif;Images/citas_11.gif;"
-                + "Images/citas_12.gif;Images/citas_13.png;Images/citas_14.png", 5);
-        </script>
-    </div>
-	<br><br><br><br><br><br><br><br><br>
-	
-    <!--<p><img src="Images/i_ultimas.png" width="301" height="56" /></p>-->
-    <!--<p><a href="documentos/notadeprensalacaixa.pdf" onmouseout="MM_swapImgRestore()" onmouseover="MM_swapImage('Image40','','Images/lacaixa_on.png',1)"><img src="Images/lacaixa.png" alt="Noticias" name="Nota de prensa" id="Image40" border="0" height="37" width="391" /></a>-->
-    <!--<p>
-        <a href="documentos/notadeprensalacaixa.pdf"> <img src="Images/lacaixa_nov2016.png" alt="Nota de prensa" name="Nota de prensa" id="Image40" border="0" height="110" width="420" /></a>
-    </p>-->
-</td>
-    </tr>
-    <tr>
-    <!--
-    <td align="center" width="370"><a href="jaca.html" onmouseout="MM_swapImgRestore()" onmouseover="MM_swapImage('Image9','','Images/i_jaca_on.png',1)"><img src="Images/i_jaca.png" alt="Academia Europea de Jaca" name="Image9" id="Image9" border="0" height="86" width="359" /></a><br /><br /></td>
-    -->
-    <td align="center" width="370"><img src="Images/citas_0.gif" alt="Academia Europea de Jaca" name="Image9" id="Image9" border="0" height="86" width="359" /></a><br /><br /></td>
-    <td rowspan="6">
-    <table border="0" cellpadding="0" cellspacing="0" width="630">
-    <tbody>
-    <tr>
-    <td><a href="noticias_titulares.html" onmouseout="MM_swapImgRestore()" onmouseover="MM_swapImage('Image12','','Images/i_noticias_on.png',1)"><img src="Images/i_noticias.png" alt="Noticias" name="Image12" id="Image12" border="0" height="43" width="730" /></a></td>
-    </tr>
-    <tr>
-    <td width="730">
+<header class="cabecera">
+	<img src="Images/i_riee_cabecera.png" alt="Real Instituto de Estudios Europeos" width="696" height="144">
+</header>
 
+<div class="columnas">
 
-    <iframe src="noticias_ultimas2.html" frameborder="0" height="900" width="730">Su navegador no soporta iframes</iframe>
+	<nav class="izquierda">
+		<a class="boton acerca" href="riee.html"><img class="off" src="Images/i_acerca.png" alt="Acerca del RIEE" width="369" height="69"><img class="on" src="Images/i_acerca_on.png" alt="Acerca del RIEE" width="369" height="69"></a>
 
+		<section class="galeria">
+			<a class="boton" href="riee_galeria.html"><img class="off" src="Images/i_imagenes.png" alt="Imágenes para el recuerdo" width="400" height="43"><img class="on" src="Images/i_imagenes_on.png" alt="Imágenes para el recuerdo" width="400" height="43"></a>
+			<div class="fotos">
+				<div id="Fotos1Background" class="diapositivas"><a href="riee_galeria.html"><img id="Fotos1" src="gal_images/presentacion_300.jpg" alt="Fotografías históricas del RIEE" width="300" height="225"></a></div>
+				<div id="Fotos2Background" class="diapositivas"><a href="riee_galeria.html"><img id="Fotos2" src="gal_images/presentacion2_300.jpg" alt="Fotografías históricas del RIEE" width="300" height="225"></a></div>
+			</div>
+		</section>
+	</nav>
 
+	<main class="derecha">
+		<a class="boton comite" href="comite.html"><img class="off" src="Images/i_comite.png" alt="Comité de honor" width="215" height="46"><img class="on" src="Images/i_comite_on.png" alt="Comité de honor" width="215" height="46"></a>
 
-    </td>
-    </tr>
-    </tbody>
-    </table>
-    </td>
-    </tr>
-    <tr>
-    <!--
-    <td align="center" width="370"><a href="dese.html" onmouseout="MM_swapImgRestore()" onmouseover="MM_swapImage('Image10','','Images/i_dese_on.png',1)"><img src="Images/i_dese.png" alt="Diploma de Estudios Superiores Europeos" name="Image10" id="Image10" border="0" height="76" width="369" /></a></td>
-    -->
-    <td align="center" width="370"><img src="Images/citas_0.gif" alt="Diploma de Estudios Superiores Europeos" name="Image10" id="Image10" border="0" height="76" width="369" /></a></td>
-    </tr>
-    
-    
-<!--    <tr>
-    <td align="center" width="370"><a href="funcpubint.html" onmouseout="MM_swapImgRestore()" onmouseover="MM_swapImage('Image11','','Images/i_funcpub_on.png',1)"><img src="Images/i_funcpub.png" alt="Curso de FunciÃ³n PÃºblica y Diplomacia" name="Image11" id="Image11" border="0" height="76" width="369" /></a></td>
-    </tr>-->
+		<div id="CitasBackground"><img id="Citas" src="Images/citas_1.gif" alt="Citas de prensa sobre el Máster del RIEE" width="306" height="64"></div>
 
-    <!--<tr>
-    <td align="center" width="370"><a href="nuevoscursos.html" onmouseout="MM_swapImgRestore()" onmouseover="MM_swapImage('Image17','','Images/i_nuevos_on.png',1)"><img src="Images/i_nuevos.png" alt="Nuevos cursos" name="Image17" id="Image17" border="0" height="70" width="369" /></a></td>
-    </tr>
--->
-    <tr>
-    <td align="center" width="370"><a href="riee.html" onmouseout="MM_swapImgRestore()" onmouseover="MM_swapImage('Image16','','Images/i_acerca_on.png',1)"><img src="Images/i_acerca.png" alt="Acerca del RIEE" name="Image16" id="Image16" border="0" height="69" width="369" /></a></td>
-    </tr>
+		<section class="noticias">
+			<a class="boton" href="noticias_titulares.html"><img class="off" src="Images/i_noticias.png" alt="Noticias destacadas" width="730" height="43"><img class="on" src="Images/i_noticias_on.png" alt="Noticias destacadas" width="730" height="43"></a>
+			<iframe src="noticias_ultimas2.html" title="Noticias destacadas"></iframe>
+		</section>
+	</main>
 
-    <tr>
-    <td align="center" width="370" height="370">
+</div>
 
-    <table>
-    <tr>
-    <td>
-    <br />
-    </td>
-    </tr>
-    <tr>
-    <td>
-    <a href="riee_galeria.html" onmouseout="MM_swapImgRestore()" onmouseover="MM_swapImage('Image15','','Images/i_imagenes_on.png',1)"><img src="Images/i_imagenes.png" alt="Imagenes" name="Image15" id="Image15" border="0" height="43" width="400" /></a>
-    </td>
-    </tr>
-    <tr>
-    <td>
+<footer class="pie style10">
+	Nueva dirección postal: Real Instituto de Estudios Europeos, Coso 32, 2º Of. 50004 Zaragoza (España) - Fax (34) 976 233 958 -
+	E-mail <a href="mailto:info@riee.eu" class="style10">info@riee.eu</a>
+</footer>
 
-    <table>
-    <tr>
-    <td width="45">
-    </td>
+<script>
+RunSlideShow("Citas", "CitasBackground", "Images/citas_1.gif;Images/citas_2.gif;Images/citas_3.gif;"
+	+ "Images/citas_4.gif;Images/citas_5.gif;Images/citas_6.gif;Images/citas_7.gif;"
+	+ "Images/citas_8.gif;Images/citas_9.gif;Images/citas_10.gif;Images/citas_11.gif;"
+	+ "Images/citas_12.gif;Images/citas_13.png;Images/citas_14.png", 5);
+RunSlideShow("Fotos1", "Fotos1Background", "gal_images/presentacion_300.jpg;gal_images/presentacion_300.jpg;gal_images/presentacion3_300.jpg;"
+	+ "gal_images/presentacion3_300.jpg;gal_images/presentacion5_300.jpg;"
+	+ "gal_images/presentacion5_300.jpg", 4);
+RunSlideShow("Fotos2", "Fotos2Background", "gal_images/presentacion2_300.jpg;gal_images/presentacion4_300.jpg;gal_images/presentacion4_300.jpg;"
+	+ "gal_images/presentacion6_300.jpg;gal_images/presentacion6_300.jpg;"
+	+ "gal_images/presentacion2_300.jpg", 4);
+</script>
 
-    <td width="300">
-    <div id="Fotos1Background" style="" align="left"><a href="riee_galeria.html"><img src="gal_images/presentacion_300.jpg" xalt="" name="Fotos1" id="Fotos1" height="225" width="300" /></a>
-    
-    <script type="text/javascript">RunSlideShow("Fotos1","Fotos1Background","gal_images/presentacion_300.jpg;gal_images/presentacion_300.jpg;gal_images/presentacion3_300.jpg;"
-    + "gal_images/presentacion3_300.jpg;gal_images/presentacion5_300.jpg;"
-    + "gal_images/presentacion5_300.jpg",4);
-    </script>
-    </div>
-    </td>
-    <td width="45"></td>
-    </tr>
-
-    <tr>
-    <td width="45">
-    </td>
-
-    <td width="300">
-    <div id="Fotos2Background" style="" align="left"><a href="riee_galeria.html"><img src="gal_images/presentacion2_300.jpg" xalt="" name="Fotos1" id="Fotos2" height="225" width="300" /></a>
-    
-    <br /><br /><br /><br /><br /><br /><br /><br />
-    <script type="text/javascript">RunSlideShow("Fotos2","Fotos2Background","gal_images/presentacion2_300.jpg;gal_images/presentacion4_300.jpg;gal_images/presentacion4_300.jpg;"
-    + "gal_images/presentacion6_300.jpg;gal_images/presentacion6_300.jpg;"
-    + "gal_images/presentacion2_300.jpg",4);
-    </script>
-    </div>
-    </td>
-    <td width="45"></td>
-    </tr>
-
-    </table>
-	
-    </td>
-    </tr>
-    </table>
-
-    </td>
-    </tr>
-
-    <tr>
-    <td colspan="3" class="style10" align="center" width="900">Nueva dirección postal: Real Instituto de Estudios Europeos, Coso 32, 2º Of. 50004 Zaragoza (España) - Fax (34) 976 233 958 -
-    E-mail <a href="mailto:info@riee.eu" class="style10">info@riee.eu</a></td>
-    </tr>
-    </tbody>
-    </table>
-    </body></html>
-</td>
+</body>
+</html>
