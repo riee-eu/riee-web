@@ -5,11 +5,9 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Real Instituto de Estudios Europeos</title>
 <meta name="description" content="El Real Instituto de Estudios Europeos organiza un Máster en Unión Europea, además de otras actividades como la Academia Europea de Jaca.">
-<meta name="keywords" content="Real Instituto de Estudios Europeos, RIEE, R.I.E.E., Máster, Unión Europea, Estudios Europeos, Zaragoza, Academia Europea de Jaca, UE">
 <meta name="author" content="Real Instituto de Estudios Europeos">
 <meta name="robots" content="index,follow">
 <meta name="google-site-verification" content="5UEkrn2yr_iAI1cgHmj7YfRRmA7h6Fovp0nZFsMIPZ8">
-<link rel="stylesheet" href="styles.css">
 <link rel="stylesheet" href="riee.css">
 <script src="slideshow.js"></script>
 <style>
@@ -33,8 +31,7 @@
 .galeria {
 	margin-top: 40px;
 }
-.galeria .boton {
-	display: block;
+.galeria .pestana {
 	text-align: left;
 }
 .fotos {
@@ -46,19 +43,85 @@
 	width: 300px;
 	height: 225px;
 }
-#CitasBackground {
-	margin: 52px 0 30px 8px;
+/* Citas de prensa: todas en la misma celda de la rejilla, para que el recuadro tenga la altura de la más larga; solo se ve la que tiene .visible */
+.citas {
+	display: grid;
 	width: 306px;
-	height: 64px;
+	max-width: 100%;
+	margin: 52px 0 0 8px;
+	font-family: Garamond, "EB Garamond", "Adobe Garamond Pro", "Times New Roman", serif;
+	font-size: 16px;
+	line-height: 1.2;
+	color: #ffffff;
+}
+.cita {
+	grid-area: 1 / 1;
+	margin: 0;
+	padding: 8px 10px;
+	opacity: 0;
+	transition: opacity 1s;
+}
+.cita.visible {
+	opacity: 1;
+}
+.cita blockquote {
+	margin: 0;
+}
+.cita figcaption {
+	text-align: right;
+}
+.cita.larga {
+	font-size: 13px;
+}
+@media (prefers-reduced-motion: reduce) {
+	.cita {
+		transition: none;
+	}
 }
 
-.noticias iframe {
+/* Últimas noticias de la portada */
+.ultimas {
+	margin: 4px 0 0;
+	padding: 0;
+	list-style: none;
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: medium;
+	color: #ffffff;
+}
+.ultimas li {
+	display: flex;
+	align-items: flex-start;
+	gap: 12px;
+	padding: 6px 4px;
+}
+.ultimas p {
+	flex: 1;
+	margin: 0;
+}
+.ultimas a {
+	color: #ffffff;
+	text-decoration: none;
+}
+.ultimas a:hover,
+.ultimas a:focus {
+	color: #ffff00;
+}
+.ultimas .resumen {
+	color: #bbbbbb;
+}
+.ultimas li > a {
+	flex: none;
+}
+.ultimas img {
 	display: block;
-	margin-top: 4px;
-	width: 730px;
-	max-width: 100%;
-	height: 900px;
-	border: 0;
+	margin: 3px;
+}
+/* Móvil: miniaturas más pequeñas */
+@media (max-width: 560px) {
+	.ultimas img {
+		width: 110px;
+		height: auto;
+	}
 }
 
 /* Pantallas estrechas: una sola columna */
@@ -74,7 +137,7 @@
 	}
 	.acerca { order: 1; }
 	.comite { order: 2; margin-top: 20px; }
-	#CitasBackground { order: 3; margin: 30px auto 20px; }
+	.citas { order: 3; margin: 30px auto 20px; }
 	.noticias { order: 4; width: 100%; max-width: 730px; }
 	.galeria { order: 5; width: 100%; max-width: 400px; }
 	.columnas img {
@@ -93,10 +156,10 @@
 <div class="columnas">
 
 	<nav class="izquierda">
-		<a class="boton acerca" href="riee.html"><img class="off" src="Images/i_acerca.png" alt="Acerca del RIEE" width="369" height="69"><img class="on" src="Images/i_acerca_on.png" alt="Acerca del RIEE" width="369" height="69"></a>
+		<a class="boton-caja acerca" href="riee.html">Acerca del RIEE</a>
 
 		<section class="galeria">
-			<a class="boton" href="galeria_fotografias.html"><img class="off" src="Images/i_imagenes.png" alt="Imágenes para el recuerdo" width="400" height="43"><img class="on" src="Images/i_imagenes_on.png" alt="Imágenes para el recuerdo" width="400" height="43"></a>
+			<a class="pestana" href="galeria_fotografias.html"><span>Imágenes para el recuerdo</span></a>
 			<div class="fotos">
 				<div id="Fotos1Background" class="diapositivas"><a href="galeria_fotografias.html"><img id="Fotos1" src="gal_images/presentacion_300.jpg" alt="Fotografías históricas del RIEE" width="300" height="225"></a></div>
 				<div id="Fotos2Background" class="diapositivas"><a href="galeria_fotografias.html"><img id="Fotos2" src="gal_images/presentacion2_300.jpg" alt="Fotografías históricas del RIEE" width="300" height="225"></a></div>
@@ -105,28 +168,75 @@
 	</nav>
 
 	<main class="derecha">
-		<a class="boton comite" href="comite.html"><img class="off" src="Images/i_comite.png" alt="Comité de honor" width="215" height="46"><img class="on" src="Images/i_comite_on.png" alt="Comité de honor" width="215" height="46"></a>
+		<a class="boton-texto comite" href="comite.html">Comité de honor</a>
 
-		<div id="CitasBackground"><img id="Citas" src="Images/citas_1.gif" alt="Citas de prensa sobre el Máster del RIEE" width="306" height="64"></div>
+		<div id="citas" class="citas" aria-label="Citas de prensa sobre el Máster del RIEE">
+			<figure class="cita visible"><blockquote>“Máster con prestigio”</blockquote><figcaption><em>El País</em>, 20-XI-1990</figcaption></figure>
+			<figure class="cita"><blockquote>“Líder en la formación de especialistas en Europa desde hace diez años”</blockquote><figcaption><em>ABC</em>, 11-I-1998</figcaption></figure>
+			<figure class="cita"><blockquote>“Un prestigioso Máster”</blockquote><figcaption><em>Heraldo de Aragón</em>, 11-IX-1998</figcaption></figure>
+			<figure class="cita"><blockquote>“Un Máster gran reserva”</blockquote><figcaption>Pedro Solbes, <em>Asociación de la Prensa de Aragón</em>, 30-XI-1998</figcaption></figure>
+			<figure class="cita"><blockquote>“Máster reconocido a nivel nacional y europeo”</blockquote><figcaption><em>El Periódico</em>, 13-X-2000</figcaption></figure>
+			<figure class="cita"><blockquote>“Sobre la Unión Europea, es el Máster”</blockquote><figcaption>Javier Elorza, Albarracín, 22-XI-2002</figcaption></figure>
+			<figure class="cita"><blockquote>“Un máster hecho con gran experiencia y vocación”</blockquote><figcaption>Loyola de Palacio, Estrasburgo, 13-V-2003</figcaption></figure>
+			<figure class="cita"><blockquote>“Un Instituto de referencia”</blockquote><figcaption>Alberto Navarro, <em>Casa de América</em>, Madrid, 30-IX-2004</figcaption></figure>
+			<figure class="cita"><blockquote>“Un Máster de calidad”</blockquote><figcaption>Javier Solana, <em>Consejo de la Unión Europea</em>, Bruselas, 6-IV-2006</figcaption></figure>
+			<figure class="cita"><blockquote>“Magnífico Máster”</blockquote><figcaption>Trinidad Jiménez, Mº de Asuntos Exteriores, Madrid, 3-XII-2007</figcaption></figure>
+			<figure class="cita"><blockquote>“Uno de los principales centros de enseñanza de postgrado en estudios europeos de toda la U.E.”</blockquote><figcaption>José Manuel Durão Barroso, Bruselas, 11-III-2009</figcaption></figure>
+			<figure class="cita"><blockquote>“Un prestigio ganado a pulso”</blockquote><figcaption>Juan Fernando López Aguilar, <em>Gobierno de Aragón</em>, Zaragoza, 4-XII-2009</figcaption></figure>
+			<figure class="cita"><blockquote>“El mejor Máster de España y uno de los mejores de Europa”</blockquote><figcaption>Daniel Calleja, <em>Academia Europea de Jaca</em>, 22-VII-2011</figcaption></figure>
+			<figure class="cita larga"><blockquote>“Este Instituto tiene el mérito de acompañar […] la vocación europea y europeísta que sólo se puede ir construyendo formando capital humano”</blockquote><figcaption>Felipe González, Zaragoza, 1-XII-2015</figcaption></figure>
+		</div>
 
 		<section class="noticias">
-			<a class="boton" href="noticias_titulares.html"><img class="off" src="Images/i_noticias.png" alt="Noticias destacadas" width="730" height="43"><img class="on" src="Images/i_noticias_on.png" alt="Noticias destacadas" width="730" height="43"></a>
-			<iframe src="noticias_ultimas2.html" title="Noticias destacadas"></iframe>
+			<a class="pestana" href="noticias_titulares.html"><span>Noticias destacadas</span></a>
+			<ul class="ultimas">
+				<li>
+					<p><span class="fecha">27/07/18</span> <a href="noticias/noticia_180727.html">D. José Borrell, actualmente Vicepresidente de la Comisión Europea y Alto Representante para la acción exterior de la UE, clausuró el 30º Programa Máster profesional en Unión Europea del Real Instituto de Estudios Europeos en el Salón de Embajadores del Ministerio y procedió a entregar a los integrantes de la promoción sus Certificados finales.</a></p>
+					<a href="noticias/noticia_180727.html" tabindex="-1"><img src="fotos/180727b.jpg" alt="" width="180" height="136"></a>
+				</li>
+				<li>
+					<p><span class="fecha">15/02/18</span> <a href="noticias/noticia_180215.html">Acto de Homenaje a la Transición democrática española, bajo la presidencia de D. <strong>Javier Solana Madariaga</strong>, ex Ministro de Asuntos Exteriores, exSecretario general de la OTAN, primer Sr. PESC de la Unión Europea</a><br>
+					<span class="resumen">El homenaje se centró en siete destacadas personalidades aragonesas de la Transición</span></p>
+					<a href="noticias/noticia_180215.html" tabindex="-1"><img src="fotos/180215.jpg" alt="" width="180" height="136"></a>
+				</li>
+				<li>
+					<p><span class="fecha">11/05/16</span> <a href="noticias/noticia_160511.html">Audiencia de <strong>S. M. el Rey Felipe VI</strong> a una representación del Real Instituto de Estudios Europeos en su 30º aniversario</a></p>
+					<a href="noticias/noticia_160511.html" tabindex="-1"><img src="fotos/160511d.jpg" alt="" width="180" height="136"></a>
+				</li>
+				<li>
+					<p><span class="fecha">01/12/15</span> <a href="noticias/noticia_151201.html">Lección inaugural de la 28ª. promoción del Programa Máster profesional en Unión Europea a cargo del expresidente del Gobierno D. <strong>Felipe González</strong>, impartida en Zaragoza</a></p>
+					<a href="noticias/noticia_151201.html" tabindex="-1"><img src="fotos/151201.jpg" alt="" width="180" height="136"></a>
+				</li>
+				<li>
+					<p><span class="fecha">04/11/13</span> <a href="noticias/noticia_131104.html">Mensaje del Presidente del Banco Central Europeo, <strong>Mario Draghi</strong>, al Real Instituto de Estudios Europeos</a></p>
+					<a href="noticias/noticia_131104.html" tabindex="-1"><img src="fotos/draghi2.jpg" alt="" width="180" height="136"></a>
+				</li>
+				<li>
+					<p><span class="fecha">11/03/09</span> <a href="noticias/noticia_090311.html">El Presidente de la Comisión Europea, <strong>Jose Manuel Durão Barroso</strong>, con el Programa Máster del Real Instituto de Estudios Europeos, en Bruselas</a></p>
+					<a href="noticias/noticia_090311.html" tabindex="-1"><img src="fotos/medalla_barroso.JPG" alt="" width="180" height="136"></a>
+				</li>
+			</ul>
 		</section>
 	</main>
 
 </div>
 
-<footer class="pie style10">
+<footer class="pie">
 	Nueva dirección postal: Real Instituto de Estudios Europeos, Coso 32, 2º Of. 50004 Zaragoza (España) - Fax (34) 976 233 958 -
-	E-mail <a href="mailto:info@riee.eu" class="style10">info@riee.eu</a>
+	E-mail <a href="mailto:info@riee.eu">info@riee.eu</a>
+	<br><a href="aviso_legal.html">Aviso legal y privacidad</a>
 </footer>
 
 <script>
-RunSlideShow("Citas", "CitasBackground", "Images/citas_1.gif;Images/citas_2.gif;Images/citas_3.gif;"
-	+ "Images/citas_4.gif;Images/citas_5.gif;Images/citas_6.gif;Images/citas_7.gif;"
-	+ "Images/citas_8.gif;Images/citas_9.gif;Images/citas_10.gif;Images/citas_11.gif;"
-	+ "Images/citas_12.gif;Images/citas_13.png;Images/citas_14.png", 5);
+// Citas de prensa: una cada 5 segundos, con fundido
+(function () {
+	var citas = document.querySelectorAll("#citas .cita"), actual = 0;
+	setInterval(function () {
+		citas[actual].classList.remove("visible");
+		actual = (actual + 1) % citas.length;
+		citas[actual].classList.add("visible");
+	}, 5000);
+})();
 RunSlideShow("Fotos1", "Fotos1Background", "gal_images/presentacion_300.jpg;gal_images/presentacion_300.jpg;gal_images/presentacion3_300.jpg;"
 	+ "gal_images/presentacion3_300.jpg;gal_images/presentacion5_300.jpg;"
 	+ "gal_images/presentacion5_300.jpg", 4);

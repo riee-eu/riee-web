@@ -4,42 +4,19 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Galería de fotografías - Real Instituto de Estudios Europeos</title>
-<link rel="stylesheet" href="styles.css">
+<meta name="description" content="Fotografías históricas del Real Instituto de Estudios Europeos desde su presentación en 1986: actos, visitas institucionales, Programa Máster y Academia Europea de Jaca.">
 <link rel="stylesheet" href="riee.css">
-<script src="highslide-with-gallery.js"></script>
-<link rel="stylesheet" href="highslide.css">
-
-<script>
-hs.graphicsDir = 'graphics/';
-hs.align = 'center';
-hs.transitions = ['expand', 'crossfade'];
-hs.outlineType = 'glossy-dark';
-hs.wrapperClassName = 'dark';
-hs.fadeInOut = true;
-//hs.dimmingOpacity = 0.75;
-
-// Add the controlbar
-if (hs.addSlideshow) hs.addSlideshow({
-	//slideshowGroup: 'group1',
-	interval: 5000,
-	repeat: false,
-	useControls: true,
-	fixedControls: 'fit',
-	overlayOptions: {
-		opacity: .6,
-		position: 'bottom center',
-		hideOnMouseOut: true
-	}
-});
-
-</script>
+<script src="galeria.js" defer></script>
 </head>
 <body>
 
+<!-- plantilla: cabecera -->
 <header class="cabecera seccion">
 	<a href="index.html"><img src="Images/i_riee_cabecera.png" alt="Real Instituto de Estudios Europeos - Inicio" width="696" height="144"></a>
 </header>
+<!-- fin plantilla -->
 
+<!-- plantilla: menu-acerca -->
 <nav class="menu-seccion" aria-label="Acerca del RIEE">
 	<a href="index.html">Inicio</a>
 	<a href="riee.html">Presentación</a>
@@ -47,6 +24,7 @@ if (hs.addSlideshow) hs.addSlideshow({
 	<a href="galeria_fotografias.html" class="activo" aria-current="page">Galería multimedia</a>
 	<a href="riee_contacto.html">Contacto</a>
 </nav>
+<!-- fin plantilla -->
 
 <main class="contenido">
 	<h1 class="titulo"><span>Galería multimedia</span></h1>
@@ -57,470 +35,320 @@ if (hs.addSlideshow) hs.addSlideshow({
 		<a href="galeria_video.html">Vídeo</a>
 	</nav>
 	<p class="nota">Pulse sobre una fotografía para ampliarla.</p>
-	<div class="highslide-gallery">
-    <a href="gal_images/presentacion.jpg" class="highslide" onclick="return hs.expand(this)">
-        <img src="gal_images/th_presentacion.jpg" alt="Presentación"
-             title="Click para agrandar" />
-    </a>
-    <div class="highslide-caption">
-        Presentación del Instituto, 1986.
-        El día 10 de mayo de 1986, en acto conmemorativo del Día de Europa celebrado en la sede central de Ibercaja, en Zaragoza, presidido por Su Alteza Real Don Felipe de Borbón, Príncipe de Asturias, se presentó a la sociedad el nuevo Instituto de Estudios Europeos, fundado en enero, justo en el momento en que el Reino de España se adhería a las Comunidades Europeas.
-        Ante una sala llena, y con asistencia de las primeras autoridades de Aragón, el entonces Director del Instituto se refirió a la importancia de la integración de España en el proceso de integración europea, tras la incorporación efectuada en 1977 al Consejo de Europa, y dijo a Don Felipe: “Encarnáis, Señor, lo mejor de España”.
-    </div>
-
-    <a href="gal_images/presentacion2.jpg" class="highslide" onclick="return hs.expand(this)">
-        <img src="gal_images/th_presentacion2.jpg" alt="Presentación"
-             title="Click para agrandar" />
-    </a>
-    <div class="highslide-caption">
-        Presentación del Programa Máster en Comunidades Europeas
-        El día 10 de noviembre de 1988, el Ministro de Asuntos Exteriores, D. Francisco Fernández Ordóñez, se desplazó a Zaragoza para realizar la presentación de una iniciativa pionera, el Programa Máster en Comunidades Europeas, cuya primera edición se desarrolló con gran éxito en el curso 1988-1989.
-        El acto se celebró en la sede de la Real Sociedad Económica Aragonesa de Amigos del País y contó con la asistencia de las primeras autoridades.
-        Seguidamente, el Sr. Ministro saludó a la Promoción Jacques Delors e impartió una brillante conferencia pública en un abarrotado Salón de plenos de la Diputación Provincial de Zaragoza.
-    </div>
-
-    <a href="gal_images/medalla_rey.jpg" class="highslide" onclick="return hs.expand(this)">
-        <img src="gal_images/th_medalla_rey.jpg" alt="Medalla S.M."
-             title="Click para agrandar" />
-    </a>
-    <div class="highslide-caption">
-        S.M. el Rey Don Juan Carlos I recibe, el 15 de octubre de 2001, en el Palacio de la Zarzuela la primera Medalla de Oro del Real Instituto de Estudios Europeos.
-    </div>
-
-    <a href="gal_images/instalaciones.jpg" class="highslide" onclick="return hs.expand(this)">
-        <img src="gal_images/th_instalaciones.jpg" alt="Instalaciones"
-             title="Click para agrandar" />
-    </a>
-    <div class="highslide-caption">
-        Sala de sesiones en la sede del Real Instituto de Estudios Europeos.
-    </div>
-
-    <a href="gal_images/medalla_barroso.jpg" class="highslide" onclick="return hs.expand(this)">
-        <img src="gal_images/th_medalla_barroso.jpg" alt="Medalla Barroso"
-             title="Click para agrandar" />
-    </a>
-    <div class="highslide-caption">
-        El Presidente de la Comisión de las Comunidades Europeas, Dr. José Manuel Durão Barroso, recibe el 11 de marzo de 2009, en la Representación Permanente de España ante la Unión Europea, en acto presidido por el Embajador D. Carlos Bastarreche, la Medalla e Insignia de Oro del Real Instituto de Estudios Europeos. <a href="noticias/noticia_090311.html" title="Enlace a la noticia" target="_parent">Más información.</a>
-    </div>
-
-    <a href="gal_images/medalla_deboer.jpg" class="highslide" onclick="return hs.expand(this)">
-        <img src="gal_images/th_medalla_deboer.jpg" alt="Medalla De Boer"
-             title="Click para agrandar" />
-    </a>
-    <div class="highslide-caption">
-        La Excma. Sra. Dª Maud de Boer-Buquicchio, Secretaria General Adjunta del Consejo de Europa, recibe la Medalla e Insignia de Oro del Real Instituto de Estudios Europeos en la celebración en Zaragoza del Día de Europa 2011. <a href="noticias/noticia_110509.html" title="Enlace a la noticia" target="_parent">Más información.</a>
-    </div>
-
-    <a href="gal_images/medalla_deboer2.jpg" class="highslide" onclick="return hs.expand(this)">
-        <img src="gal_images/th_medalla_deboer2.jpg" alt="Medalla De Boer"
-             title="Click para agrandar" />
-    </a>
-    <div class="highslide-caption">
-        El 5 de mayo de 2011 se celebró en el Salón Aragón de Ibercaja el Día de Europa, con cerca de 300 asistentes. En el curso del acto tomaron la palabra el Secretario de Estado de Asuntos Exteriores, D. Juan Antonio Yáñez-Barnuevo y la Secretaria General Adjunta del Consejo de Europa, Dra. Maud de Boer-Buquicchio, quien recibió de manos del Secretario de Estado y del Presidente del Instituto, D. Maximiliano Bernad, la Insignia de Oro y la Medalla del Instituto. Cerró el acto el Presidente de Ibercaja, D. Amado Franco Lahoz <a href="noticias/noticia_110509.html" title="Enlace a la noticia" target="_parent">Más información.</a>
-    </div>
-
-    <a href="gal_images/firma_stages.jpg" class="highslide" onclick="return hs.expand(this)">
-        <img src="gal_images/th_firma_stages.jpg" alt="Firma stages"
-             title="Click para agrandar" />
-    </a>
-    <div class="highslide-caption">
-        El Patio de la Infanta de Ibercaja acogió en Zaragoza el 5 de mayo de 2011 el acto de firma del Protocolo de acuerdo entre el Consejo de Europa, representado por la Secretaria General Adjunta, Ibercaja, la Real Sociedad Económica Aragonesa de Amigos del País y el Real Instituto de Estudios Europeos, para "stages" en dicha Organización internacional, en presencia del Secretario de Estado de Asuntos Exteriores y para Iberoamérica, D. Juan Antonio Yáñez-Barnuevo.
-    </div>
-
-    <a href="gal_images/audiencia_principe.jpg" class="highslide" onclick="return hs.expand(this)">
-        <img src="gal_images/th_audiencia_principe.jpg" alt="Audiencia príncipe"
-             title="Click para agrandar" />
-    </a>
-    <div class="highslide-caption">
-        El 30 de mayo de 2011, S.A.R. el Príncipe de Asturias recibió a una representación del Real Instituto de Estudios Europeos en su 25 aniversario.
-    </div>
-
-    <a href="gal_images/audiencia_principe2.jpg" class="highslide" onclick="return hs.expand(this)">
-        <img src="gal_images/th_audiencia_principe2.jpg" alt="Audiencia príncipe"
-             title="Click para agrandar" />
-    </a>
-    <div class="highslide-caption">
-        El 30 de mayo de 2011, S.A.R. el Príncipe de Asturias recibió a una representación del Real Instituto de Estudios Europeos en su 25 aniversario.
-    </div>
-
-    <a href="gal_images/calleja.jpg" class="highslide" onclick="return hs.expand(this)">
-        <img src="gal_images/th_calleja.jpg" alt="Daniel Calleja"
-             title="Click para agrandar" />
-    </a>
-    <div class="highslide-caption">
-        Daniel Calleja, Enviado Especial para las PYMES de la Comisión Europea, firmando el Libro de Honor del Real Instituto de Estudios Europeos, el 25 de noviembre de 2011.
-    </div>
-
-    <a href="gal_images/fonseca.jpg" class="highslide" onclick="return hs.expand(this)">
-        <img src="gal_images/th_fonseca.jpg" alt="Francisco Fonseca"
-             title="Click para agrandar" />
-    </a>
-    <div class="highslide-caption">
-        El Director de la Representación en España de la Comisión Europea, Francisco Fonseca, firma en el Libro de Honor del Real Instituto de Estudios Europeos, el 2 de diciembre de 2011.
-    </div>
-
-    <a href="gal_images/jornadas25_1.jpg" class="highslide" onclick="return hs.expand(this)">
-        <img src="gal_images/th_jornadas25_1.jpg" alt="Jornadas 25 años de España en la Unión Europea y la crisis"
-             title="Click para agrandar" />
-    </a>
-    <div class="highslide-caption">
-        Inauguración de las Jornadas "25 años de España en la Unión Europea y la crisis", presidida por el Presidente de la Diputación de Zaragoza Luis María Beamonte, el día 14 de diciembre de 2011.
-    </div>
-
-    <a href="gal_images/jornadas25_2.jpg" class="highslide" onclick="return hs.expand(this)">
-        <img src="gal_images/th_jornadas25_2.jpg" alt="Jornadas 25 años de España en la Unión Europea y la crisis"
-             title="Click para agrandar" />
-    </a>
-    <div class="highslide-caption">
-        Clausura de las Jornadas "25 años de España en la Unión Europea y la crisis", presidida por el Consejero de Hacienda y Administración pública del Gobierno de Aragón Mario Garcés.
-    </div>
-
-    <a href="gal_images/medalla_tajani1.jpg" class="highslide" onclick="return hs.expand(this)">
-        <img src="gal_images/th_medalla_tajani1.jpg" alt="Medalla Tajani"
-             title="Click para agrandar" />
-    </a>
-    <div class="highslide-caption">
-        El día 17 de abril de 2012, el eurodiputado y ex-Ministro D. Jaime Mayor Oreja entregó al Vicepresidente de la Comisión Europea, D. Antonio Tajani, la Medalla del RIEE
-    </div>
-
-    <a href="gal_images/medalla_tajani2.jpg" class="highslide" onclick="return hs.expand(this)">
-        <img src="gal_images/th_medalla_tajani2.jpg" alt="Medalla Tajani"
-             title="Click para agrandar" />
-    </a>
-    <div class="highslide-caption">
-        El día 17 de abril de 2012, el eurodiputado y ex-Ministro D. Jaime Mayor Oreja entregó al Vicepresidente de la Comisión Europea, D. Antonio Tajani, la Medalla del RIEE
-    </div>
-
-    <a href="gal_images/medalla_tajani3.jpg" class="highslide" onclick="return hs.expand(this)">
-        <img src="gal_images/th_medalla_tajani3.jpg" alt="Medalla Tajani"
-             title="Click para agrandar" />
-    </a>
-    <div class="highslide-caption">
-        El día 17 de abril de 2012, el eurodiputado y ex-Ministro D. Jaime Mayor Oreja entregó al Vicepresidente de la Comisión Europea, D. Antonio Tajani, la Medalla del RIEE
-    </div>
-
-    <a href="gal_images/medalla_tajani4.jpg" class="highslide" onclick="return hs.expand(this)">
-        <img src="gal_images/th_medalla_tajani4.jpg" alt="Medalla Tajani"
-             title="Click para agrandar" />
-    </a>
-    <div class="highslide-caption">
-        El día 17 de abril de 2012, el eurodiputado y ex-Ministro D. Jaime Mayor Oreja entregó al Vicepresidente de la Comisión Europea, D. Antonio Tajani, la Medalla del RIEE
-    </div>
-
-    <a href="gal_images/diezhochleitner.jpg" class="highslide" onclick="return hs.expand(this)">
-        <img src="gal_images/th_diezhochleitner.jpg" alt="Díez-Hochleitner"
-             title="Click para agrandar" />
-    </a>
-    <div class="highslide-caption">
-        El día 29 de mayo de 2012, el Embajador de España ante la OCDE, Ricardo Díez-Hochleitner, interviene en el Máster en Unión Europea del Real Instituto de Estudios Europeos.
-    </div>
-
-    <a href="gal_images/diezhochleitner2.jpg" class="highslide" onclick="return hs.expand(this)">
-        <img src="gal_images/th_diezhochleitner2.jpg" alt="Díez-Hochleitner"
-             title="Click para agrandar" />
-    </a>
-    <div class="highslide-caption">
-        El día 29 de mayo de 2012, el Embajador de España ante la OCDE, Ricardo Díez-Hochleitner, interviene en el Máster en Unión Europea del Real Instituto de Estudios Europeos.
-    </div>
-
-    <a href="gal_images/romero.jpg" class="highslide" onclick="return hs.expand(this)">
-        <img src="gal_images/th_romero.jpg" alt="Luis Romero"
-             title="Click para agrandar" />
-    </a>
-    <div class="highslide-caption">
-        El Director General del Servicio jurídico de la Comisión Europea, y ex-Director General de Presupuestos, Luis Romero, visitó el Real Instituto de Estudios Europeos.
-    </div>
-
-    <a href="gal_images/morenes.jpg" class="highslide" onclick="return hs.expand(this)">
-        <img src="gal_images/th_morenes.jpg" alt="Pedro Morenés"
-             title="Click para agrandar" />
-    </a>
-    <div class="highslide-caption">
-        El Ministro de Defensa, D. Pedro Morenés Eulate, aparece con los integrantes de la promoción y los Profesores Maximiliano Bernad y Juan Carlos Usero
-    </div>
-
-    <a href="gal_images/morenes2.jpg" class="highslide" onclick="return hs.expand(this)">
-        <img src="gal_images/th_morenes2.jpg" alt="Pedro Morenés"
-             title="Click para agrandar" />
-    </a>
-    <div class="highslide-caption">
-        Un momento del encuentro del Sr. Ministro de Defensa con los integrantes de la 24ª. edición del Programa Máster en Unión Europea del Real Instituto de Estudios Europeos, el 4 de junio de 2012.
-    </div>
-
-    <a href="gal_images/garces.jpg" class="highslide" onclick="return hs.expand(this)">
-        <img src="gal_images/th_garces.jpg" alt="Mario Garcés"
-             title="Click para agrandar" />
-    </a>
-    <div class="highslide-caption">
-        El Subsecretario del Ministerio de Fomento, D. Mario Garcés, intervino el 4 de junio de 2012 en las sesiones del 24º Programa Máster en Unión Europea, hablando sobre infraestructuras y transporte en la Unión Europea.
-    </div>
-
-    <a href="gal_images/mendivil.jpg" class="highslide" onclick="return hs.expand(this)">
-        <img src="gal_images/th_mendivil.jpg" alt="Rafael Mendívil"
-             title="Click para agrandar" />
-    </a>
-    <div class="highslide-caption">
-        El Subsecretario de Asuntos Exteriores y de Cooperación, D. Rafael Mendívil, procedió a la entrega en el Salón de Embajadores del Palacio de Santa Cruz de Diplomas de Estudios Superiores Europeos en el curso de las sesiones en Madrid del 24º. Programa Máster en Unión Europea.
-    </div>
-
-    <a href="gal_images/peralta.jpg" class="highslide" onclick="return hs.expand(this)">
-        <img src="gal_images/th_peralta.jpg" alt="Esteban Peralta"
-             title="Click para agrandar" />
-    </a>
-    <div class="highslide-caption">
-        Esteban Peralta (primero a la izquierda), funcionario de la Corte Penal Internacional (La Haya), en una instantánea tomada en 1986 en el Palacio de la Moncloa con el Presidente del Gobierno, Felipe González, durante una de las visitas del Programa Máster del Real Instituto de Estudios Europeos (de cuya Junta forma parte) a Presidentes del Gobierno.
-    </div>
-
-    <a href="gal_images/peralta2.jpg" class="highslide" onclick="return hs.expand(this)">
-        <img src="gal_images/th_peralta2.jpg" alt="Esteban Peralta"
-             title="Click para agrandar" />
-    </a>
-    <div class="highslide-caption">
-        Esteban Peralta, durante su
-        intervención sobre la Corte Penal Internacional en la Academia Europea de
-        Jaca de 2011.
-    </div>
-
-    <a href="gal_images/garces2.jpg" class="highslide" onclick="return hs.expand(this)">
-        <img src="gal_images/th_garces2.jpg" alt="Mario Garcés"
-             title="Click para agrandar" />
-    </a>
-    <div class="highslide-caption">
-        El 16 de julio de 2012, D. Mario Garcés, Subsecretario del Ministerio de Fomento, inauguró las sesiones de la Academia Europea de Jaca de 2012
-    </div>
-
-    <a href="gal_images/mendivil2.jpg" class="highslide" onclick="return hs.expand(this)">
-        <img src="gal_images/th_mendivil2.jpg" alt="Rafael Mendívil"
-             title="Click para agrandar" />
-    </a>
-    <div class="highslide-caption">
-        El Subsecretario del Ministerio de Asuntos Exteriores y de Cooperación, D. Rafael Mendívil, inauguró el 17 de julio de 2012 el IV Curso sobre Función pública internacional y europea, que cubrió todas sus plazas, en la Sala Pirineos del Palacio de Congresos de Jaca.
-    </div>
-
-    <a href="gal_images/gracia.jpg" class="highslide" onclick="return hs.expand(this)">
-        <img src="gal_images/th_gracia.jpg" alt="Jesús Gracia Aldaz"
-             title="Click para agrandar" />
-    </a>
-    <div class="highslide-caption">
-        El Secretario de Estado de Cooperación internacional y para Iberoamérica, D. Jesús Gracia Aldaz, clausuró el 20 de julio de 2012 la 28ª. Edición de la Academia Europea de Jaca, en acto presidido por el Consejero de Economía y Empleo del Gobierno de Aragón, D. Francisco Bono y con la Sala Europa llena de público.
-    </div>
-
-    <a href="gal_images/escolano1.jpg" class="highslide" onclick="return hs.expand(this)">
-        <img src="gal_images/th_escolano1.jpg" alt="Román Escolano"
-             title="Click para agrandar" />
-    </a>
-    <div class="highslide-caption">
-        El Presidente del ICO, D. Román Escolano, firma en el Libro de Honor del RIEE.
-    </div>
-
-    <a href="gal_images/escolano2.jpg" class="highslide" onclick="return hs.expand(this)">
-        <img src="gal_images/th_escolano2.jpg" alt="Román Escolano"
-             title="Click para agrandar" />
-    </a>
-    <div class="highslide-caption">
-        D. Román Escolano, con los integrantes de la Promoción Manuel Pizarro (2012-2013)
-    </div>
-
-    <a href="gal_images/escolano3.jpg" class="highslide" onclick="return hs.expand(this)">
-        <img src="gal_images/th_escolano3.jpg" alt="Román Escolano"
-             title="Click para agrandar" />
-    </a>
-    <div class="highslide-caption">
-        El Presidente del ICO, D. Román Escolano, impartiendo su Lección inaugural de la 25ª. edición del Programa Máster en Unión Europea.
-    </div>
-
-    <a href="gal_images/elorza.jpg" class="highslide" onclick="return hs.expand(this)">
-        <img src="gal_images/th_elorza.jpg" alt="Román Escolano"
-             title="Click para agrandar" />
-    </a>
-    <div class="highslide-caption">
-        Javier Elorza, Embajador de España en Italia, y anteriormente ante la Unión Europea, en Francia, Rusia e India, con integrantes de la 25ª. promoción del Programa Máster profesional en Unión Europea (2012-2013) y algunos de los profesores responsables del mismo.
-    </div>
-
-
-    <a href="gal_images/dastis1.jpg" class="highslide" onclick="return hs.expand(this)">
-        <img src="gal_images/th_dastis1.jpg" alt="Alfonso Dastis"
-             title="Click para agrandar" />
-    </a>
-    <div class="highslide-caption">
-        El Embajador de España ante la Unión Europea, D. Alfonso Dastis, firma en el Libro de Honor del RIEE.
-    </div>
-
-
-    <a href="gal_images/dastis2.jpg" class="highslide" onclick="return hs.expand(this)">
-        <img src="gal_images/th_dastis2.jpg" alt="Alfonso Dastis"
-             title="Click para agrandar" />
-    </a>
-    <div class="highslide-caption">
-        El Embajador, Alfonso Dastis, con los integrantes de la Promoción Manuel Pizarro, tras su intervención en el Programa Máster profesional en Unión Europea.
-    </div>
-
-
-    <a href="gal_images/sainz.jpg" class="highslide" onclick="return hs.expand(this)">
-        <img src="gal_images/th_sainz.jpg" alt="Sainz de Vicuña"
-             title="Click para agrandar" />
-    </a>
-    <div class="highslide-caption">
-        Un momento de la ceremonia de entrega de la Medalla del Real Instituto de Estudios Europeos a D. Antonio Sáinz de Vicuña, Director General del Servicio Jurídico del Banco Central Europeo
-    </div>
-
-
-    <a href="gal_images/sainz2.jpg" class="highslide" onclick="return hs.expand(this)">
-        <img src="gal_images/th_sainz2.jpg" alt="Sainz de Vicuña"
-             title="Click para agrandar" />
-    </a>
-    <div class="highslide-caption">
-        Antonio Sáinz de Vicuña, tras recibir la medalla del Real Instituto de Estudios Europeos, con los integrantes de la promoción Mario Draghi (2013-2014)
-    </div>
-
-    <a href="gal_images/tajani.jpg" class="highslide" onclick="return hs.expand(this)">
-        <img src="gal_images/th_tajani.jpg" alt="Tajani"
-             title="Click para agrandar" />
-    </a>
-    <div class="highslide-caption">
-        El 3 de abril de 2014, en el Palacio de la Aljafería, el Presidente de las Cortes de Aragón, Excmo. Sr. D. José Ángel Biel, preside el solemne acto en el que el Vicepresidente de la Comisión Europea, responsable de Industria y Emprendimiento, Excmo. Sr. D. Antonio Tajani, recibirá la Insignia de Oro del Real Instituto de Estudios Europeos.
-    </div>
-
-    <a href="gal_images/tajani2.jpg" class="highslide" onclick="return hs.expand(this)">
-        <img src="gal_images/th_tajani2.jpg" alt="Tajani"
-             title="Click para agrandar" />
-    </a>
-    <div class="highslide-caption">
-        El 3 de abril de 2014, en el Palacio de la Aljafería, el Presidente de las Cortes de Aragón, Excmo. Sr. D. José Ángel Biel, preside el solemne acto en el que el Vicepresidente de la Comisión Europea, responsable de Industria y Emprendimiento, Excmo. Sr. D. Antonio Tajani, recibirá la Insignia de Oro del Real Instituto de Estudios Europeos.
-    </div>
-
-
-    <a href="gal_images/gracia2.jpg" class="highslide" onclick="return hs.expand(this)">
-        <img src="gal_images/th_gracia2.jpg" alt="Jesús Gracia"
-             title="Click para agrandar" />
-    </a>
-    <div class="highslide-caption">
-        El 24 de junio de 2014, el Excmo. Sr. D. Jesús Gracia, Secretario de Estado de Cooperación internacional y para Iberoamérica, imparte la Lección de clausura del 26º. Programa Máster profesional en Unión Europea.
-    </div>
-
-    <a href="gal_images/gracia3.jpg" class="highslide" onclick="return hs.expand(this)">
-        <img src="gal_images/th_gracia3.jpg" alt="Jesús Gracia"
-             title="Click para agrandar" />
-    </a>
-    <div class="highslide-caption">
-        El 24 de junio de 2014, el Excmo. Sr. D. Jesús Gracia, Secretario de Estado de Cooperación internacional y para Iberoamérica, imparte la Lección de clausura del 26º. Programa Máster profesional en Unión Europea.
-    </div>
-
-
-    <a href="gal_images/vicuna.jpg" class="highslide" onclick="return hs.expand(this)">
-        <img src="gal_images/th_vicuna.jpg" alt="Sáinz de Vicuña"
-             title="Click para agrandar" />
-    </a>
-    <div class="highslide-caption">
-        El 15 de diciembre de 2014, el exdirector General del Servicio jurídico del Banco Central Europeo, Excmo. Sr. D. Antonio Sáinz de Vicuña, imparte la Lección inaugural del 27º. Programa Máster en Unión Europea, sobre El mercado común de los valores.
-    </div>
-
-
-    <a href="gal_images/vicuna2.jpg" class="highslide" onclick="return hs.expand(this)">
-        <img src="gal_images/th_vicuna2.jpg" alt="Sáinz de Vicuña"
-             title="Click para agrandar" />
-    </a>
-    <div class="highslide-caption">El 27 de abril de 2015, en la nueva sede del Banco Central Europeo, en Fráncfort, la Excma. Sra. Dª. Margarita Delgado, Directora General Adjunta de Supervisión, hace entrega a quien ha sido durante muchos años el Director General del Servicio jurídico del BCE, Excmo. Sr. D. Antonio Sáinz de Vicuña, de la Insignia de Oro del Real Instituto de Estudios Europeos</div>
-
-
-    <a href="gal_images/biel.jpg" class="highslide" onclick="return hs.expand(this)">
-        <img src="gal_images/th_biel.jpg" alt="Biel"
-             title="Click para agrandar" />
-    </a>
-    <div class="highslide-caption">El 13 de mayo de 2015, el Presidente de las Cortes de Aragón, Excmo. Sr. D. José Ángel Biel, se dirige a los integrantes de la 27ª. promoción del Programa Máster en Unión Europea durante su visita al Real Instituto de Estudios Europeos y firma en el libro de honor</div>
-
-
-    <a href="gal_images/audiencia_rey1.jpg" class="highslide" onclick="return hs.expand(this)">
-        <img src="gal_images/th_audiencia_rey1.jpg" alt="Felipe VI"
-             title="Click para agrandar" />
-    </a>
-    <div class="highslide-caption">El 11 de mayo de 2016, Su Majestad el Rey recibe el saludo del presidente de Real Instituto de Estudios Europeos, Maximiliano Bernad y Álvarez de Eulate</div>
-
-
-    <a href="gal_images/audiencia_rey2.jpg" class="highslide" onclick="return hs.expand(this)">
-        <img src="gal_images/th_audiencia_rey2.jpg" alt="Felipe VI"
-             title="Click para agrandar" />
-    </a>
-    <div class="highslide-caption">El 11 de mayo de 2016, Don Felipe recibe de manos del presidente del Real Instituto de Estudios Europeos la Medalla e Insignia de Oro de ese Real Instituto</div>
-
-
-    <a href="gal_images/audiencia_rey3.jpg" class="highslide" onclick="return hs.expand(this)">
-        <img src="gal_images/th_audiencia_rey3.jpg" alt="Felipe VI"
-             title="Click para agrandar" />
-    </a>
-    <div class="highslide-caption">Don Felipe tras recibir el galardón durante la audiencia</div>
-
-
-    <a href="gal_images/audiencia_rey4.jpg" class="highslide" onclick="return hs.expand(this)">
-        <img src="gal_images/th_audiencia_rey4.jpg" alt="Felipe VI"
-             title="Click para agrandar" />
-    </a>
-    <div class="highslide-caption">Su Majestad el Rey junto a las personas que integran la representación del Real Instituto de Estudios Europeos</div>
-
-
-    <a href="gal_images/audiencia_rey5.jpg" class="highslide" onclick="return hs.expand(this)">
-        <img src="gal_images/th_audiencia_rey5.jpg" alt="Felipe VI"
-             title="Click para agrandar" />
-    </a>
-    <div class="highslide-caption">Momento en que el presidente del Real Instituto de Estudios Europeos impone la medalla e insignia a Su Majestad el Rey</div>
-
-
-    <a href="gal_images/audiencia_rey5.jpg" class="highslide" onclick="return hs.expand(this)">
-        <img src="gal_images/th_audiencia_rey5.jpg" alt="Felipe VI"
-             title="Click para agrandar" />
-    </a>
-    <div class="highslide-caption">Momento en que el presidente del Real Instituto de Estudios Europeos impone la medalla e insignia a Su Majestad el Rey</div>
-
-
-    <a href="gal_images/sainz3.jpg" class="highslide" onclick="return hs.expand(this)">
-        <img src="gal_images/th_sainz3.jpg" alt="Felipe VI"
-             title="Click para agrandar" />
-    </a>
-    <div class="highslide-caption">El 15 de diciembre de 2014, el ex-Director General del Servicio jurídico del Banco Central Europeo, D. Antonio Sáinz de Vicuña, firma en el Libro de Honor del Real Instituto de Estudios Europeos</div>
-
-
-    <a href="gal_images/solana1.jpg" class="highslide" onclick="return hs.expand(this)">
-        <img src="gal_images/th_solana1.jpg" alt="Felipe VI"
-             title="Click para agrandar" />
-    </a>
-    <div class="highslide-caption">El 15 de febrero de 2018 se celebró en el Caixafórum de Zaragoza un Acto de Homenaje a la Transición democrática española bajo la presidencia de D. Javier Solana Madariaga</div>
-
-    <a href="gal_images/solana2.jpg" class="highslide" onclick="return hs.expand(this)">
-        <img src="gal_images/th_solana2.jpg" alt="Felipe VI"
-             title="Click para agrandar" />
-    </a>
-    <div class="highslide-caption">El 15 de febrero de 2018 se celebró en el Caixafórum de Zaragoza un Acto de Homenaje a la Transición democrática española bajo la presidencia de D. Javier Solana Madariaga</div>
-
-    <a href="gal_images/solana3.jpg" class="highslide" onclick="return hs.expand(this)">
-        <img src="gal_images/th_solana3.jpg" alt="Felipe VI"
-             title="Click para agrandar" />
-    </a>
-    <div class="highslide-caption">El 15 de febrero de 2018 se celebró en el Caixafórum de Zaragoza un Acto de Homenaje a la Transición democrática española bajo la presidencia de D. Javier Solana Madariaga</div>
-
-    <a href="gal_images/solana4.jpg" class="highslide" onclick="return hs.expand(this)">
-        <img src="gal_images/th_solana4.jpg" alt="Felipe VI"
-             title="Click para agrandar" />
-    </a>
-    <div class="highslide-caption">El 15 de febrero de 2018 se celebró en el Caixafórum de Zaragoza un Acto de Homenaje a la Transición democrática española bajo la presidencia de D. Javier Solana Madariaga</div>
+	<div class="galeria-fotos">
+		<figure>
+			<a href="gal_images/presentacion.jpg"><img src="gal_images/th_presentacion.jpg" alt="Presentación" title="Pulse para ampliar" loading="lazy"></a>
+			<figcaption>Presentación del Instituto, 1986. El día 10 de mayo de 1986, en acto conmemorativo del Día de Europa celebrado en la sede central de Ibercaja, en Zaragoza, presidido por Su Alteza Real Don Felipe de Borbón, Príncipe de Asturias, se presentó a la sociedad el nuevo Instituto de Estudios Europeos, fundado en enero, justo en el momento en que el Reino de España se adhería a las Comunidades Europeas. Ante una sala llena, y con asistencia de las primeras autoridades de Aragón, el entonces Director del Instituto se refirió a la importancia de la integración de España en el proceso de integración europea, tras la incorporación efectuada en 1977 al Consejo de Europa, y dijo a Don Felipe: “Encarnáis, Señor, lo mejor de España”.</figcaption>
+		</figure>
+
+		<figure>
+			<a href="gal_images/presentacion2.jpg"><img src="gal_images/th_presentacion2.jpg" alt="Presentación" title="Pulse para ampliar" loading="lazy"></a>
+			<figcaption>Presentación del Programa Máster en Comunidades Europeas El día 10 de noviembre de 1988, el Ministro de Asuntos Exteriores, D. Francisco Fernández Ordóñez, se desplazó a Zaragoza para realizar la presentación de una iniciativa pionera, el Programa Máster en Comunidades Europeas, cuya primera edición se desarrolló con gran éxito en el curso 1988-1989. El acto se celebró en la sede de la Real Sociedad Económica Aragonesa de Amigos del País y contó con la asistencia de las primeras autoridades. Seguidamente, el Sr. Ministro saludó a la Promoción Jacques Delors e impartió una brillante conferencia pública en un abarrotado Salón de plenos de la Diputación Provincial de Zaragoza.</figcaption>
+		</figure>
+
+		<figure>
+			<a href="gal_images/medalla_rey.jpg"><img src="gal_images/th_medalla_rey.jpg" alt="Medalla S.M." title="Pulse para ampliar" loading="lazy"></a>
+			<figcaption>S.M. el Rey Don Juan Carlos I recibe, el 15 de octubre de 2001, en el Palacio de la Zarzuela la primera Medalla de Oro del Real Instituto de Estudios Europeos.</figcaption>
+		</figure>
+
+		<figure>
+			<a href="gal_images/instalaciones.jpg"><img src="gal_images/th_instalaciones.jpg" alt="Instalaciones" title="Pulse para ampliar" loading="lazy"></a>
+			<figcaption>Sala de sesiones en la sede del Real Instituto de Estudios Europeos.</figcaption>
+		</figure>
+
+		<figure>
+			<a href="gal_images/medalla_barroso.jpg"><img src="gal_images/th_medalla_barroso.jpg" alt="Medalla Barroso" title="Pulse para ampliar" loading="lazy"></a>
+			<figcaption>El Presidente de la Comisión de las Comunidades Europeas, Dr. José Manuel Durão Barroso, recibe el 11 de marzo de 2009, en la Representación Permanente de España ante la Unión Europea, en acto presidido por el Embajador D. Carlos Bastarreche, la Medalla e Insignia de Oro del Real Instituto de Estudios Europeos. <a href="noticias/noticia_090311.html" title="Enlace a la noticia" target="_parent">Más información.</a></figcaption>
+		</figure>
+
+		<figure>
+			<a href="gal_images/medalla_deboer.jpg"><img src="gal_images/th_medalla_deboer.jpg" alt="Medalla De Boer" title="Pulse para ampliar" loading="lazy"></a>
+			<figcaption>La Excma. Sra. Dª Maud de Boer-Buquicchio, Secretaria General Adjunta del Consejo de Europa, recibe la Medalla e Insignia de Oro del Real Instituto de Estudios Europeos en la celebración en Zaragoza del Día de Europa 2011. <a href="noticias/noticia_110509.html" title="Enlace a la noticia" target="_parent">Más información.</a></figcaption>
+		</figure>
+
+		<figure>
+			<a href="gal_images/medalla_deboer2.jpg"><img src="gal_images/th_medalla_deboer2.jpg" alt="Medalla De Boer" title="Pulse para ampliar" loading="lazy"></a>
+			<figcaption>El 5 de mayo de 2011 se celebró en el Salón Aragón de Ibercaja el Día de Europa, con cerca de 300 asistentes. En el curso del acto tomaron la palabra el Secretario de Estado de Asuntos Exteriores, D. Juan Antonio Yáñez-Barnuevo y la Secretaria General Adjunta del Consejo de Europa, Dra. Maud de Boer-Buquicchio, quien recibió de manos del Secretario de Estado y del Presidente del Instituto, D. Maximiliano Bernad, la Insignia de Oro y la Medalla del Instituto. Cerró el acto el Presidente de Ibercaja, D. Amado Franco Lahoz <a href="noticias/noticia_110509.html" title="Enlace a la noticia" target="_parent">Más información.</a></figcaption>
+		</figure>
+
+		<figure>
+			<a href="gal_images/firma_stages.jpg"><img src="gal_images/th_firma_stages.jpg" alt="Firma stages" title="Pulse para ampliar" loading="lazy"></a>
+			<figcaption>El Patio de la Infanta de Ibercaja acogió en Zaragoza el 5 de mayo de 2011 el acto de firma del Protocolo de acuerdo entre el Consejo de Europa, representado por la Secretaria General Adjunta, Ibercaja, la Real Sociedad Económica Aragonesa de Amigos del País y el Real Instituto de Estudios Europeos, para "stages" en dicha Organización internacional, en presencia del Secretario de Estado de Asuntos Exteriores y para Iberoamérica, D. Juan Antonio Yáñez-Barnuevo.</figcaption>
+		</figure>
+
+		<figure>
+			<a href="gal_images/audiencia_principe.jpg"><img src="gal_images/th_audiencia_principe.jpg" alt="Audiencia príncipe" title="Pulse para ampliar" loading="lazy"></a>
+			<figcaption>El 30 de mayo de 2011, S.A.R. el Príncipe de Asturias recibió a una representación del Real Instituto de Estudios Europeos en su 25 aniversario.</figcaption>
+		</figure>
+
+		<figure>
+			<a href="gal_images/audiencia_principe2.jpg"><img src="gal_images/th_audiencia_principe2.jpg" alt="Audiencia príncipe" title="Pulse para ampliar" loading="lazy"></a>
+			<figcaption>El 30 de mayo de 2011, S.A.R. el Príncipe de Asturias recibió a una representación del Real Instituto de Estudios Europeos en su 25 aniversario.</figcaption>
+		</figure>
+
+		<figure>
+			<a href="gal_images/calleja.jpg"><img src="gal_images/th_calleja.jpg" alt="Daniel Calleja" title="Pulse para ampliar" loading="lazy"></a>
+			<figcaption>Daniel Calleja, Enviado Especial para las PYMES de la Comisión Europea, firmando el Libro de Honor del Real Instituto de Estudios Europeos, el 25 de noviembre de 2011.</figcaption>
+		</figure>
+
+		<figure>
+			<a href="gal_images/fonseca.jpg"><img src="gal_images/th_fonseca.jpg" alt="Francisco Fonseca" title="Pulse para ampliar" loading="lazy"></a>
+			<figcaption>El Director de la Representación en España de la Comisión Europea, Francisco Fonseca, firma en el Libro de Honor del Real Instituto de Estudios Europeos, el 2 de diciembre de 2011.</figcaption>
+		</figure>
+
+		<figure>
+			<a href="gal_images/jornadas25_1.jpg"><img src="gal_images/th_jornadas25_1.jpg" alt="Jornadas 25 años de España en la Unión Europea y la crisis" title="Pulse para ampliar" loading="lazy"></a>
+			<figcaption>Inauguración de las Jornadas "25 años de España en la Unión Europea y la crisis", presidida por el Presidente de la Diputación de Zaragoza Luis María Beamonte, el día 14 de diciembre de 2011.</figcaption>
+		</figure>
+
+		<figure>
+			<a href="gal_images/jornadas25_2.jpg"><img src="gal_images/th_jornadas25_2.jpg" alt="Jornadas 25 años de España en la Unión Europea y la crisis" title="Pulse para ampliar" loading="lazy"></a>
+			<figcaption>Clausura de las Jornadas "25 años de España en la Unión Europea y la crisis", presidida por el Consejero de Hacienda y Administración pública del Gobierno de Aragón Mario Garcés.</figcaption>
+		</figure>
+
+		<figure>
+			<a href="gal_images/medalla_tajani1.jpg"><img src="gal_images/th_medalla_tajani1.jpg" alt="Medalla Tajani" title="Pulse para ampliar" loading="lazy"></a>
+			<figcaption>El día 17 de abril de 2012, el eurodiputado y ex-Ministro D. Jaime Mayor Oreja entregó al Vicepresidente de la Comisión Europea, D. Antonio Tajani, la Medalla del RIEE</figcaption>
+		</figure>
+
+		<figure>
+			<a href="gal_images/medalla_tajani2.jpg"><img src="gal_images/th_medalla_tajani2.jpg" alt="Medalla Tajani" title="Pulse para ampliar" loading="lazy"></a>
+			<figcaption>El día 17 de abril de 2012, el eurodiputado y ex-Ministro D. Jaime Mayor Oreja entregó al Vicepresidente de la Comisión Europea, D. Antonio Tajani, la Medalla del RIEE</figcaption>
+		</figure>
+
+		<figure>
+			<a href="gal_images/medalla_tajani3.jpg"><img src="gal_images/th_medalla_tajani3.jpg" alt="Medalla Tajani" title="Pulse para ampliar" loading="lazy"></a>
+			<figcaption>El día 17 de abril de 2012, el eurodiputado y ex-Ministro D. Jaime Mayor Oreja entregó al Vicepresidente de la Comisión Europea, D. Antonio Tajani, la Medalla del RIEE</figcaption>
+		</figure>
+
+		<figure>
+			<a href="gal_images/medalla_tajani4.jpg"><img src="gal_images/th_medalla_tajani4.jpg" alt="Medalla Tajani" title="Pulse para ampliar" loading="lazy"></a>
+			<figcaption>El día 17 de abril de 2012, el eurodiputado y ex-Ministro D. Jaime Mayor Oreja entregó al Vicepresidente de la Comisión Europea, D. Antonio Tajani, la Medalla del RIEE</figcaption>
+		</figure>
+
+		<figure>
+			<a href="gal_images/diezhochleitner.jpg"><img src="gal_images/th_diezhochleitner.jpg" alt="Díez-Hochleitner" title="Pulse para ampliar" loading="lazy"></a>
+			<figcaption>El día 29 de mayo de 2012, el Embajador de España ante la OCDE, Ricardo Díez-Hochleitner, interviene en el Máster en Unión Europea del Real Instituto de Estudios Europeos.</figcaption>
+		</figure>
+
+		<figure>
+			<a href="gal_images/diezhochleitner2.jpg"><img src="gal_images/th_diezhochleitner2.jpg" alt="Díez-Hochleitner" title="Pulse para ampliar" loading="lazy"></a>
+			<figcaption>El día 29 de mayo de 2012, el Embajador de España ante la OCDE, Ricardo Díez-Hochleitner, interviene en el Máster en Unión Europea del Real Instituto de Estudios Europeos.</figcaption>
+		</figure>
+
+		<figure>
+			<a href="gal_images/romero.jpg"><img src="gal_images/th_romero.jpg" alt="Luis Romero" title="Pulse para ampliar" loading="lazy"></a>
+			<figcaption>El Director General del Servicio jurídico de la Comisión Europea, y ex-Director General de Presupuestos, Luis Romero, visitó el Real Instituto de Estudios Europeos.</figcaption>
+		</figure>
+
+		<figure>
+			<a href="gal_images/morenes.jpg"><img src="gal_images/th_morenes.jpg" alt="Pedro Morenés" title="Pulse para ampliar" loading="lazy"></a>
+			<figcaption>El Ministro de Defensa, D. Pedro Morenés Eulate, aparece con los integrantes de la promoción y los Profesores Maximiliano Bernad y Juan Carlos Usero</figcaption>
+		</figure>
+
+		<figure>
+			<a href="gal_images/morenes2.jpg"><img src="gal_images/th_morenes2.jpg" alt="Pedro Morenés" title="Pulse para ampliar" loading="lazy"></a>
+			<figcaption>Un momento del encuentro del Sr. Ministro de Defensa con los integrantes de la 24ª. edición del Programa Máster en Unión Europea del Real Instituto de Estudios Europeos, el 4 de junio de 2012.</figcaption>
+		</figure>
+
+		<figure>
+			<a href="gal_images/garces.jpg"><img src="gal_images/th_garces.jpg" alt="Mario Garcés" title="Pulse para ampliar" loading="lazy"></a>
+			<figcaption>El Subsecretario del Ministerio de Fomento, D. Mario Garcés, intervino el 4 de junio de 2012 en las sesiones del 24º Programa Máster en Unión Europea, hablando sobre infraestructuras y transporte en la Unión Europea.</figcaption>
+		</figure>
+
+		<figure>
+			<a href="gal_images/mendivil.jpg"><img src="gal_images/th_mendivil.jpg" alt="Rafael Mendívil" title="Pulse para ampliar" loading="lazy"></a>
+			<figcaption>El Subsecretario de Asuntos Exteriores y de Cooperación, D. Rafael Mendívil, procedió a la entrega en el Salón de Embajadores del Palacio de Santa Cruz de Diplomas de Estudios Superiores Europeos en el curso de las sesiones en Madrid del 24º. Programa Máster en Unión Europea.</figcaption>
+		</figure>
+
+		<figure>
+			<a href="gal_images/peralta.jpg"><img src="gal_images/th_peralta.jpg" alt="Esteban Peralta" title="Pulse para ampliar" loading="lazy"></a>
+			<figcaption>Esteban Peralta (primero a la izquierda), funcionario de la Corte Penal Internacional (La Haya), en una instantánea tomada en 1986 en el Palacio de la Moncloa con el Presidente del Gobierno, Felipe González, durante una de las visitas del Programa Máster del Real Instituto de Estudios Europeos (de cuya Junta forma parte) a Presidentes del Gobierno.</figcaption>
+		</figure>
+
+		<figure>
+			<a href="gal_images/peralta2.jpg"><img src="gal_images/th_peralta2.jpg" alt="Esteban Peralta" title="Pulse para ampliar" loading="lazy"></a>
+			<figcaption>Esteban Peralta, durante su intervención sobre la Corte Penal Internacional en la Academia Europea de Jaca de 2011.</figcaption>
+		</figure>
+
+		<figure>
+			<a href="gal_images/garces2.jpg"><img src="gal_images/th_garces2.jpg" alt="Mario Garcés" title="Pulse para ampliar" loading="lazy"></a>
+			<figcaption>El 16 de julio de 2012, D. Mario Garcés, Subsecretario del Ministerio de Fomento, inauguró las sesiones de la Academia Europea de Jaca de 2012</figcaption>
+		</figure>
+
+		<figure>
+			<a href="gal_images/mendivil2.jpg"><img src="gal_images/th_mendivil2.jpg" alt="Rafael Mendívil" title="Pulse para ampliar" loading="lazy"></a>
+			<figcaption>El Subsecretario del Ministerio de Asuntos Exteriores y de Cooperación, D. Rafael Mendívil, inauguró el 17 de julio de 2012 el IV Curso sobre Función pública internacional y europea, que cubrió todas sus plazas, en la Sala Pirineos del Palacio de Congresos de Jaca.</figcaption>
+		</figure>
+
+		<figure>
+			<a href="gal_images/gracia.jpg"><img src="gal_images/th_gracia.jpg" alt="Jesús Gracia Aldaz" title="Pulse para ampliar" loading="lazy"></a>
+			<figcaption>El Secretario de Estado de Cooperación internacional y para Iberoamérica, D. Jesús Gracia Aldaz, clausuró el 20 de julio de 2012 la 28ª. Edición de la Academia Europea de Jaca, en acto presidido por el Consejero de Economía y Empleo del Gobierno de Aragón, D. Francisco Bono y con la Sala Europa llena de público.</figcaption>
+		</figure>
+
+		<figure>
+			<a href="gal_images/escolano1.jpg"><img src="gal_images/th_escolano1.jpg" alt="Román Escolano" title="Pulse para ampliar" loading="lazy"></a>
+			<figcaption>El Presidente del ICO, D. Román Escolano, firma en el Libro de Honor del RIEE.</figcaption>
+		</figure>
+
+		<figure>
+			<a href="gal_images/escolano2.jpg"><img src="gal_images/th_escolano2.jpg" alt="Román Escolano" title="Pulse para ampliar" loading="lazy"></a>
+			<figcaption>D. Román Escolano, con los integrantes de la Promoción Manuel Pizarro (2012-2013)</figcaption>
+		</figure>
+
+		<figure>
+			<a href="gal_images/escolano3.jpg"><img src="gal_images/th_escolano3.jpg" alt="Román Escolano" title="Pulse para ampliar" loading="lazy"></a>
+			<figcaption>El Presidente del ICO, D. Román Escolano, impartiendo su Lección inaugural de la 25ª. edición del Programa Máster en Unión Europea.</figcaption>
+		</figure>
+
+		<figure>
+			<a href="gal_images/elorza.jpg"><img src="gal_images/th_elorza.jpg" alt="Román Escolano" title="Pulse para ampliar" loading="lazy"></a>
+			<figcaption>Javier Elorza, Embajador de España en Italia, y anteriormente ante la Unión Europea, en Francia, Rusia e India, con integrantes de la 25ª. promoción del Programa Máster profesional en Unión Europea (2012-2013) y algunos de los profesores responsables del mismo.</figcaption>
+		</figure>
+
+
+		<figure>
+			<a href="gal_images/dastis1.jpg"><img src="gal_images/th_dastis1.jpg" alt="Alfonso Dastis" title="Pulse para ampliar" loading="lazy"></a>
+			<figcaption>El Embajador de España ante la Unión Europea, D. Alfonso Dastis, firma en el Libro de Honor del RIEE.</figcaption>
+		</figure>
+
+
+		<figure>
+			<a href="gal_images/dastis2.jpg"><img src="gal_images/th_dastis2.jpg" alt="Alfonso Dastis" title="Pulse para ampliar" loading="lazy"></a>
+			<figcaption>El Embajador, Alfonso Dastis, con los integrantes de la Promoción Manuel Pizarro, tras su intervención en el Programa Máster profesional en Unión Europea.</figcaption>
+		</figure>
+
+
+		<figure>
+			<a href="gal_images/sainz.jpg"><img src="gal_images/th_sainz.jpg" alt="Sainz de Vicuña" title="Pulse para ampliar" loading="lazy"></a>
+			<figcaption>Un momento de la ceremonia de entrega de la Medalla del Real Instituto de Estudios Europeos a D. Antonio Sáinz de Vicuña, Director General del Servicio Jurídico del Banco Central Europeo</figcaption>
+		</figure>
+
+
+		<figure>
+			<a href="gal_images/sainz2.jpg"><img src="gal_images/th_sainz2.jpg" alt="Sainz de Vicuña" title="Pulse para ampliar" loading="lazy"></a>
+			<figcaption>Antonio Sáinz de Vicuña, tras recibir la medalla del Real Instituto de Estudios Europeos, con los integrantes de la promoción Mario Draghi (2013-2014)</figcaption>
+		</figure>
+
+		<figure>
+			<a href="gal_images/tajani.jpg"><img src="gal_images/th_tajani.jpg" alt="Tajani" title="Pulse para ampliar" loading="lazy"></a>
+			<figcaption>El 3 de abril de 2014, en el Palacio de la Aljafería, el Presidente de las Cortes de Aragón, Excmo. Sr. D. José Ángel Biel, preside el solemne acto en el que el Vicepresidente de la Comisión Europea, responsable de Industria y Emprendimiento, Excmo. Sr. D. Antonio Tajani, recibirá la Insignia de Oro del Real Instituto de Estudios Europeos.</figcaption>
+		</figure>
+
+		<figure>
+			<a href="gal_images/tajani2.jpg"><img src="gal_images/th_tajani2.jpg" alt="Tajani" title="Pulse para ampliar" loading="lazy"></a>
+			<figcaption>El 3 de abril de 2014, en el Palacio de la Aljafería, el Presidente de las Cortes de Aragón, Excmo. Sr. D. José Ángel Biel, preside el solemne acto en el que el Vicepresidente de la Comisión Europea, responsable de Industria y Emprendimiento, Excmo. Sr. D. Antonio Tajani, recibirá la Insignia de Oro del Real Instituto de Estudios Europeos.</figcaption>
+		</figure>
+
+
+		<figure>
+			<a href="gal_images/gracia2.jpg"><img src="gal_images/th_gracia2.jpg" alt="Jesús Gracia" title="Pulse para ampliar" loading="lazy"></a>
+			<figcaption>El 24 de junio de 2014, el Excmo. Sr. D. Jesús Gracia, Secretario de Estado de Cooperación internacional y para Iberoamérica, imparte la Lección de clausura del 26º. Programa Máster profesional en Unión Europea.</figcaption>
+		</figure>
+
+		<figure>
+			<a href="gal_images/gracia3.jpg"><img src="gal_images/th_gracia3.jpg" alt="Jesús Gracia" title="Pulse para ampliar" loading="lazy"></a>
+			<figcaption>El 24 de junio de 2014, el Excmo. Sr. D. Jesús Gracia, Secretario de Estado de Cooperación internacional y para Iberoamérica, imparte la Lección de clausura del 26º. Programa Máster profesional en Unión Europea.</figcaption>
+		</figure>
+
+
+		<figure>
+			<a href="gal_images/vicuna.jpg"><img src="gal_images/th_vicuna.jpg" alt="Sáinz de Vicuña" title="Pulse para ampliar" loading="lazy"></a>
+			<figcaption>El 15 de diciembre de 2014, el exdirector General del Servicio jurídico del Banco Central Europeo, Excmo. Sr. D. Antonio Sáinz de Vicuña, imparte la Lección inaugural del 27º. Programa Máster en Unión Europea, sobre El mercado común de los valores.</figcaption>
+		</figure>
+
+
+		<figure>
+			<a href="gal_images/vicuna2.jpg"><img src="gal_images/th_vicuna2.jpg" alt="Sáinz de Vicuña" title="Pulse para ampliar" loading="lazy"></a>
+			<figcaption>El 27 de abril de 2015, en la nueva sede del Banco Central Europeo, en Fráncfort, la Excma. Sra. Dª. Margarita Delgado, Directora General Adjunta de Supervisión, hace entrega a quien ha sido durante muchos años el Director General del Servicio jurídico del BCE, Excmo. Sr. D. Antonio Sáinz de Vicuña, de la Insignia de Oro del Real Instituto de Estudios Europeos</figcaption>
+		</figure>
+
+
+		<figure>
+			<a href="gal_images/biel.jpg"><img src="gal_images/th_biel.jpg" alt="Biel" title="Pulse para ampliar" loading="lazy"></a>
+			<figcaption>El 13 de mayo de 2015, el Presidente de las Cortes de Aragón, Excmo. Sr. D. José Ángel Biel, se dirige a los integrantes de la 27ª. promoción del Programa Máster en Unión Europea durante su visita al Real Instituto de Estudios Europeos y firma en el libro de honor</figcaption>
+		</figure>
+
+
+		<figure>
+			<a href="gal_images/audiencia_rey1.jpg"><img src="gal_images/th_audiencia_rey1.jpg" alt="Felipe VI" title="Pulse para ampliar" loading="lazy"></a>
+			<figcaption>El 11 de mayo de 2016, Su Majestad el Rey recibe el saludo del presidente de Real Instituto de Estudios Europeos, Maximiliano Bernad y Álvarez de Eulate</figcaption>
+		</figure>
+
+
+		<figure>
+			<a href="gal_images/audiencia_rey2.jpg"><img src="gal_images/th_audiencia_rey2.jpg" alt="Felipe VI" title="Pulse para ampliar" loading="lazy"></a>
+			<figcaption>El 11 de mayo de 2016, Don Felipe recibe de manos del presidente del Real Instituto de Estudios Europeos la Medalla e Insignia de Oro de ese Real Instituto</figcaption>
+		</figure>
+
+
+		<figure>
+			<a href="gal_images/audiencia_rey3.jpg"><img src="gal_images/th_audiencia_rey3.jpg" alt="Felipe VI" title="Pulse para ampliar" loading="lazy"></a>
+			<figcaption>Don Felipe tras recibir el galardón durante la audiencia</figcaption>
+		</figure>
+
+
+		<figure>
+			<a href="gal_images/audiencia_rey4.jpg"><img src="gal_images/th_audiencia_rey4.jpg" alt="Felipe VI" title="Pulse para ampliar" loading="lazy"></a>
+			<figcaption>Su Majestad el Rey junto a las personas que integran la representación del Real Instituto de Estudios Europeos</figcaption>
+		</figure>
+
+
+		<figure>
+			<a href="gal_images/audiencia_rey5.jpg"><img src="gal_images/th_audiencia_rey5.jpg" alt="Felipe VI" title="Pulse para ampliar" loading="lazy"></a>
+			<figcaption>Momento en que el presidente del Real Instituto de Estudios Europeos impone la medalla e insignia a Su Majestad el Rey</figcaption>
+		</figure>
+
+
+		<figure>
+			<a href="gal_images/audiencia_rey5.jpg"><img src="gal_images/th_audiencia_rey5.jpg" alt="Felipe VI" title="Pulse para ampliar" loading="lazy"></a>
+			<figcaption>Momento en que el presidente del Real Instituto de Estudios Europeos impone la medalla e insignia a Su Majestad el Rey</figcaption>
+		</figure>
+
+
+		<figure>
+			<a href="gal_images/sainz3.jpg"><img src="gal_images/th_sainz3.jpg" alt="Felipe VI" title="Pulse para ampliar" loading="lazy"></a>
+			<figcaption>El 15 de diciembre de 2014, el ex-Director General del Servicio jurídico del Banco Central Europeo, D. Antonio Sáinz de Vicuña, firma en el Libro de Honor del Real Instituto de Estudios Europeos</figcaption>
+		</figure>
+
+
+		<figure>
+			<a href="gal_images/solana1.jpg"><img src="gal_images/th_solana1.jpg" alt="Felipe VI" title="Pulse para ampliar" loading="lazy"></a>
+			<figcaption>El 15 de febrero de 2018 se celebró en el Caixafórum de Zaragoza un Acto de Homenaje a la Transición democrática española bajo la presidencia de D. Javier Solana Madariaga</figcaption>
+		</figure>
+
+		<figure>
+			<a href="gal_images/solana2.jpg"><img src="gal_images/th_solana2.jpg" alt="Felipe VI" title="Pulse para ampliar" loading="lazy"></a>
+			<figcaption>El 15 de febrero de 2018 se celebró en el Caixafórum de Zaragoza un Acto de Homenaje a la Transición democrática española bajo la presidencia de D. Javier Solana Madariaga</figcaption>
+		</figure>
+
+		<figure>
+			<a href="gal_images/solana3.jpg"><img src="gal_images/th_solana3.jpg" alt="Felipe VI" title="Pulse para ampliar" loading="lazy"></a>
+			<figcaption>El 15 de febrero de 2018 se celebró en el Caixafórum de Zaragoza un Acto de Homenaje a la Transición democrática española bajo la presidencia de D. Javier Solana Madariaga</figcaption>
+		</figure>
+
+		<figure>
+			<a href="gal_images/solana4.jpg"><img src="gal_images/th_solana4.jpg" alt="Felipe VI" title="Pulse para ampliar" loading="lazy"></a>
+			<figcaption>El 15 de febrero de 2018 se celebró en el Caixafórum de Zaragoza un Acto de Homenaje a la Transición democrática española bajo la presidencia de D. Javier Solana Madariaga</figcaption>
+		</figure>
  
-	<a href="gal_images/gonzalez1.jpg" class="highslide" onclick="return hs.expand(this)">
-        <img src="gal_images/th_gonzalez1.jpg" alt="Felipe González"
-             title="Click para agrandar" />
-    </a>
-    <div class="highslide-caption">El exPresidente del Gobierno D. Felipe González, en su intervención previa en la sede del Real Instituto  el 1 de diciembre de 2015 antes de impartir la Lección inaugural del Programa Máster en Unión Europea. A su derecha, la exministra de Asuntos Exteriores Dª. Trinidad Jiménez, y a su izquierda el exsecretario de Estado de Asuntos Exteriores y exembajador en la ONU D. Juan Antonio Yáñez-Barnuevo.</div>
-	
-	<a href="gal_images/gonzalez2.jpg" class="highslide" onclick="return hs.expand(this)">
-        <img src="gal_images/th_gonzalez2.jpg" alt="Felipe González"
-             title="Click para agrandar" />
-    </a>
-    <div class="highslide-caption">El exPresidente del Gobierno D. Felipe González, en su intervención previa en la sede del Real Instituto  el 1 de diciembre de 2015 antes de impartir la Lección inaugural del Programa Máster en Unión Europea. A su derecha, la exministra de Asuntos Exteriores Dª. Trinidad Jiménez, y a su izquierda el exsecretario de Estado de Asuntos Exteriores y exembajador en la ONU D. Juan Antonio Yáñez-Barnuevo.</div>
+		<figure>
+			<a href="gal_images/gonzalez1.jpg"><img src="gal_images/th_gonzalez1.jpg" alt="Felipe González" title="Pulse para ampliar" loading="lazy"></a>
+			<figcaption>El exPresidente del Gobierno D. Felipe González, en su intervención previa en la sede del Real Instituto el 1 de diciembre de 2015 antes de impartir la Lección inaugural del Programa Máster en Unión Europea. A su derecha, la exministra de Asuntos Exteriores Dª. Trinidad Jiménez, y a su izquierda el exsecretario de Estado de Asuntos Exteriores y exembajador en la ONU D. Juan Antonio Yáñez-Barnuevo.</figcaption>
+		</figure>
+
+		<figure>
+			<a href="gal_images/gonzalez2.jpg"><img src="gal_images/th_gonzalez2.jpg" alt="Felipe González" title="Pulse para ampliar" loading="lazy"></a>
+			<figcaption>El exPresidente del Gobierno D. Felipe González, en su intervención previa en la sede del Real Instituto el 1 de diciembre de 2015 antes de impartir la Lección inaugural del Programa Máster en Unión Europea. A su derecha, la exministra de Asuntos Exteriores Dª. Trinidad Jiménez, y a su izquierda el exsecretario de Estado de Asuntos Exteriores y exembajador en la ONU D. Juan Antonio Yáñez-Barnuevo.</figcaption>
+		</figure>
 	</div>
 </main>
 
-<footer class="pie style10">
-	Nueva dirección postal: Real Instituto de Estudios Europeos, Coso 32, 2º Of. 50004 Zaragoza (España) - Fax (34) 976 233 958 -
-	E-mail <a href="mailto:info@riee.eu" class="style10">info@riee.eu</a>
+<!-- plantilla: pie -->
+<footer class="pie-legal">
+	<a href="aviso_legal.html">Aviso legal y privacidad</a>
 </footer>
+<!-- fin plantilla -->
 
 </body>
 </html>

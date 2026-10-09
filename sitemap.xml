@@ -17,6 +17,7 @@
 	<url><loc>https://www.riee.eu/galeria_audio.html</loc><lastmod>2026-10-09</lastmod></url>
 	<url><loc>https://www.riee.eu/galeria_video.html</loc><lastmod>2026-10-09</lastmod></url>
 	<url><loc>https://www.riee.eu/riee_contacto.html</loc><lastmod>2026-10-09</lastmod></url>
+	<url><loc>https://www.riee.eu/aviso_legal.html</loc><lastmod>2026-10-10</lastmod></url>
 	<url><loc>https://www.riee.eu/noticias_titulares.html</loc><lastmod>2026-10-09</lastmod></url>
 	<url><loc>https://www.riee.eu/noticias/noticia_180727.html</loc><lastmod>2026-10-09</lastmod></url>
 	<url><loc>https://www.riee.eu/noticias/noticia_180215.html</loc><lastmod>2026-10-09</lastmod></url>
@@ -84,31 +85,4 @@
 	<url><loc>https://www.riee.eu/noticias/noticia_090706.html</loc><lastmod>2026-10-09</lastmod></url>
 	<url><loc>https://www.riee.eu/noticias/noticia_090609.html</loc><lastmod>2026-10-09</lastmod></url>
 	<url><loc>https://www.riee.eu/noticias/noticia_090311.html</loc><lastmod>2026-10-09</lastmod></url>
-	<url><loc>https://www.riee.eu/master.html</loc></url>
-	<url><loc>https://www.riee.eu/jaca.html</loc></url>
-	<url><loc>https://www.riee.eu/dese.html</loc></url>
-	<url><loc>https://www.riee.eu/funcpubint.html</loc></url>
-	<url><loc>https://www.riee.eu/master_presentacion.html</loc></url>
-	<url><loc>https://www.riee.eu/jaca_presentacion.html</loc></url>
-	<url><loc>https://www.riee.eu/dese_informacion.html</loc></url>
-	<url><loc>https://www.riee.eu/funcpubint_informacion.html</loc></url>
-	<url><loc>https://www.riee.eu/master_profesorado.html</loc></url>
-	<url><loc>https://www.riee.eu/master_programa.html</loc></url>
-	<url><loc>https://www.riee.eu/master_dirigidoa.html</loc></url>
-	<url><loc>https://www.riee.eu/master_metodotrabajo.html</loc></url>
-	<url><loc>https://www.riee.eu/master_consejodireccion.html</loc></url>
-	<url><loc>https://www.riee.eu/master_antiguosauditores.html</loc></url>
-	<url><loc>https://www.riee.eu/master_memoriasaprobadas.html</loc></url>
-	<url><loc>https://www.riee.eu/master_informacioneinscripciones.html</loc></url>
-	<url><loc>https://www.riee.eu/master_preguntas.html</loc></url>
-	<url><loc>https://www.riee.eu/master_informacionescomplementarias.html</loc></url>
-	<url><loc>https://www.riee.eu/jaca_informacion.html</loc></url>
-	<url><loc>https://www.riee.eu/jaca_formulario.html</loc></url>
-	<url><loc>https://www.riee.eu/jaca_comollegar.html</loc></url>
-	<url><loc>https://www.riee.eu/jaca_edicionesanteriores.html</loc></url>
-	<url><loc>https://www.riee.eu/dese_cursos.html</loc></url>
-	<url><loc>https://www.riee.eu/funcpubint_programa.html</loc></url>
-	<url><loc>https://www.riee.eu/funcpubint_inscripcion.html</loc></url>
-	<url><loc>https://www.riee.eu/documentos/jacaformulario.pdf</loc></url>
-	<url><loc>https://www.riee.eu/documentos/funcpubintformulario.pdf</loc></url>
 </urlset>

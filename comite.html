@@ -5,26 +5,10 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Comité de Honor - Real Instituto de Estudios Europeos</title>
 <meta name="description" content="Composición del Comité de Honor del Real Instituto de Estudios Europeos.">
-<link rel="stylesheet" href="styles.css">
 <link rel="stylesheet" href="riee.css">
 <style>
-.cabecera {
-	margin-bottom: 0;
-}
-.menu {
-	display: flex;
-	justify-content: center;
-	align-items: center;
-	gap: 40px;
-	margin: 14px 0 50px;
-}
-
 .contenido h1 {
 	margin: 0 0 30px;
-}
-.contenido h1 img {
-	max-width: 100%;
-	height: auto;
 }
 .actualizado {
 	color: #bbbbbb;
@@ -55,17 +39,23 @@
 </head>
 <body>
 
-<header class="cabecera">
+<!-- plantilla: cabecera -->
+<header class="cabecera seccion">
 	<a href="index.html"><img src="Images/i_riee_cabecera.png" alt="Real Instituto de Estudios Europeos - Inicio" width="696" height="144"></a>
 </header>
+<!-- fin plantilla -->
 
-<nav class="menu">
-	<a class="boton" href="index.html"><img class="off" src="Images/inicio.gif" alt="Ir al Inicio" width="78" height="18"><img class="on" src="Images/inicio_on.gif" alt="Ir al Inicio" width="78" height="18"></a>
-	<a class="boton" href="riee.html"><img class="off" src="Images/acerca_riee.gif" alt="Acerca del RIEE" width="125" height="23"><img class="on" src="Images/acerca_riee_on.gif" alt="Acerca del RIEE" width="125" height="23"></a>
+<!-- plantilla: menu-general -->
+<nav class="menu-seccion">
+	<a href="index.html">Inicio</a>
+	<a href="riee.html">Acerca del RIEE</a>
+	<a href="noticias_titulares.html">Noticias</a>
+	<a href="riee_contacto.html">Contacto</a>
 </nav>
+<!-- fin plantilla -->
 
 <main class="contenido">
-	<h1><img src="Images/i_comite.png" alt="Comité de honor" width="215" height="46"></h1>
+	<h1 class="boton-texto">Comité de honor</h1>
 
 	<p>El Presidente de Honor del Real Instituto de Estudios Europeos es Su Majestad el Rey Don Felipe VI.</p>
 	<p>Composición del <strong>COMITÉ DE HONOR DEL REAL INSTITUTO DE ESTUDIOS EUROPEOS</strong>, <span class="actualizado">actualizada a diciembre de 2021</span>.</p>
@@ -103,10 +93,11 @@
 	</section>
 </main>
 
-<footer class="pie style10">
-	Nueva dirección postal: Real Instituto de Estudios Europeos, Coso 32, 2º Of. 50004 Zaragoza (España) - Fax (34) 976 233 958 -
-	E-mail <a href="mailto:info@riee.eu" class="style10">info@riee.eu</a>
+<!-- plantilla: pie -->
+<footer class="pie-legal">
+	<a href="aviso_legal.html">Aviso legal y privacidad</a>
 </footer>
+<!-- fin plantilla -->
 
 </body>
 </html>

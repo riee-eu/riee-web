@@ -1,4 +1,4 @@
-/* Estilos comunes de las páginas con el diseño nuevo (index.html, comite.html) */
+/* Estilos de todas las páginas con el diseño nuevo (las antiguas de cursos usan styles.css) */
 
 body {
 	margin: 8px;
@@ -34,10 +34,95 @@ img {
 	display: inline;
 }
 
+/* Botones de texto de la portada, con el aspecto de las antiguas imágenes */
+.boton-caja,
+.boton-texto,
+.pestana span {
+	font-family: Calibri, Carlito, "Segoe UI", Arial, sans-serif;
+	text-transform: uppercase;
+}
+.boton-caja,
+.boton-texto,
+.pestana {
+	text-decoration: none;
+}
+/* Recuadro azul: "Acerca del RIEE" */
+.boton-caja {
+	display: inline-block;
+	box-sizing: border-box;
+	width: 359px;
+	max-width: 100%;
+	margin: 5px;
+	padding: 18px 10px;
+	background-color: #1f497d;
+	color: #d9d9d9;
+	font-size: 18px;
+	line-height: 23px;
+	text-align: center;
+}
+/* Texto grande sin recuadro: "Comité de honor" */
+.boton-texto {
+	display: inline-block;
+	padding: 8px 12px;
+	color: #ccccff;
+	font-size: 23px;
+	font-weight: normal;
+	line-height: 30px;
+}
+/* Pestaña con línea inferior: "Imágenes para el recuerdo", "Noticias destacadas" */
+.pestana {
+	display: block;
+	margin: 5px 0 5px 5px;
+	border-bottom: 1px solid #d9d9d9;
+}
+.pestana span {
+	display: inline-block;
+	padding: 0 16px;
+	background-color: #1f497d;
+	color: #ffffff;
+	font-size: 18px;
+	line-height: 32px;
+}
+.boton-caja:hover,
+.boton-caja:focus,
+a.boton-texto:hover,
+a.boton-texto:focus,
+.pestana:hover span,
+.pestana:focus span {
+	color: #ffff00;
+}
+
 /* Pie con la dirección */
 .pie {
 	margin: 16px 0 8px;
 	text-align: center;
+	font-size: 16px;
+	color: #999999;
+}
+.pie a {
+	color: #999999;
+}
+
+/* Pie con el enlace al aviso legal (todas las páginas salvo la portada) */
+.pie-legal {
+	margin: 50px 0 10px;
+	text-align: center;
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: small;
+}
+.pie-legal a {
+	color: #bbbbbb;
+}
+.pie-legal a:hover,
+.pie-legal a:focus {
+	color: #ffff00;
+}
+
+/* Datos que faltan por completar */
+.pendiente {
+	background-color: #ffff66;
+	color: #003366;
+	padding: 0 4px;
 }
 
 /* Contenido de texto: letra blanca sobre el fondo azul, como las noticias */
@@ -177,12 +262,118 @@ img {
 	color: #ffff66;
 }
 
-/* Galería multimedia */
-.highslide-gallery {
+/* Galería multimedia: fotografías (el visor lo crea galeria.js) */
+.galeria-fotos {
 	display: flex;
 	flex-wrap: wrap;
 	justify-content: center;
 	gap: 12px;
+}
+.galeria-fotos figure {
+	margin: 0;
+}
+.galeria-fotos figcaption {
+	display: none;
+}
+.galeria-fotos img {
+	display: block;
+	border: 2px solid silver;
+}
+.galeria-fotos a:hover img,
+.galeria-fotos a:focus img {
+	border-color: #ffff00;
+}
+.visor {
+	max-width: 95vw;
+	max-height: 95vh;
+	padding: 10px;
+	border: 1px solid #555555;
+	border-radius: 6px;
+	background-color: #111111;
+	color: #dddddd;
+	box-shadow: 0 0 30px rgba(0, 0, 0, 0.8);
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 14px;
+}
+.visor:focus {
+	outline: none;
+}
+.visor-foto figcaption a {
+	color: #ffff66;
+}
+.visor::backdrop {
+	background-color: rgba(0, 0, 0, 0.75);
+}
+.visor[open] {
+	animation: visor-aparece 0.25s ease-out;
+}
+@keyframes visor-aparece {
+	from { opacity: 0; transform: scale(0.9); }
+	to { opacity: 1; transform: scale(1); }
+}
+.visor-foto {
+	margin: 0;
+}
+.visor-foto img {
+	display: block;
+	max-width: calc(95vw - 22px);
+	max-height: calc(95vh - 140px);
+	margin: 0 auto;
+	opacity: 0;
+	transition: opacity 0.4s;
+}
+.visor-foto img.cargada {
+	opacity: 1;
+}
+.visor-foto figcaption {
+	max-width: 900px;
+	max-height: 5.5em;
+	margin: 8px auto 0;
+	overflow-y: auto;
+	line-height: 1.35;
+}
+.visor-controles {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	gap: 6px;
+	margin-top: 8px;
+}
+.visor-controles button {
+	min-width: 40px;
+	height: 34px;
+	border: 1px solid #555555;
+	border-radius: 4px;
+	background-color: #2a2a2a;
+	color: #ffffff;
+	font-size: 20px;
+	line-height: 1;
+	cursor: pointer;
+}
+.visor-controles button:hover,
+.visor-controles button:focus {
+	border-color: #ffff00;
+	color: #ffff00;
+}
+.visor-controles .visor-pase {
+	font-size: 14px;
+}
+.visor-contador {
+	min-width: 60px;
+	text-align: center;
+	color: #bbbbbb;
+}
+.visor-controles .visor-cerrar {
+	margin-left: 16px;
+	font-size: 16px;
+}
+@media (prefers-reduced-motion: reduce) {
+	.visor[open] {
+		animation: none;
+	}
+	.visor-foto img {
+		transition: none;
+	}
 }
 .audios {
 	margin: 0 0 30px;
@@ -332,6 +523,25 @@ img {
 }
 .compartir {
 	margin-top: 30px;
+}
+/* Botón "Compartir en Facebook": enlace a sharer.php, sin cargar nada de Facebook */
+.contenido a.boton-facebook {
+	display: inline-flex;
+	align-items: center;
+	gap: 8px;
+	padding: 7px 14px;
+	border-radius: 6px;
+	background-color: #0866ff;
+	color: #ffffff;
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 15px;
+	font-weight: bold;
+	text-decoration: none;
+}
+.contenido a.boton-facebook:hover,
+.contenido a.boton-facebook:focus {
+	background-color: #0055d4;
+	color: #ffffff;
 }
 
 @media (max-width: 600px) {
