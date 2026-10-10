@@ -10,6 +10,14 @@
 
 	var INTERVALO_PASE = 5000; // milisegundos entre fotos en el pase automático
 
+	// Textos del visor en cada idioma; se elige según <html lang="…"> (español si no está)
+	var TEXTOS = {
+		es: { visor: "Fotografía ampliada", anterior: "Anterior", anteriorTit: "Anterior (flecha izquierda)", siguiente: "Siguiente", siguienteTit: "Siguiente (flecha derecha)", paseTit: "Pase automático (espacio)", iniciar: "Iniciar pase automático", detener: "Detener pase automático", cerrar: "Cerrar", cerrarTit: "Cerrar (Esc)" },
+		en: { visor: "Enlarged photograph", anterior: "Previous", anteriorTit: "Previous (left arrow)", siguiente: "Next", siguienteTit: "Next (right arrow)", paseTit: "Slideshow (space bar)", iniciar: "Start slideshow", detener: "Stop slideshow", cerrar: "Close", cerrarTit: "Close (Esc)" },
+		fr: { visor: "Photographie agrandie", anterior: "Précédente", anteriorTit: "Précédente (flèche gauche)", siguiente: "Suivante", siguienteTit: "Suivante (flèche droite)", paseTit: "Diaporama (barre d'espace)", iniciar: "Lancer le diaporama", detener: "Arrêter le diaporama", cerrar: "Fermer", cerrarTit: "Fermer (Échap)" }
+	};
+	var T = TEXTOS[(document.documentElement.lang || "es").slice(0, 2)] || TEXTOS.es;
+
 	var fotos = [];
 	var actual = 0;
 	var temporizador = null;
@@ -19,18 +27,18 @@
 		visor = document.createElement("dialog");
 		visor.className = "visor";
 		visor.tabIndex = -1;
-		visor.setAttribute("aria-label", "Fotografía ampliada");
+		visor.setAttribute("aria-label", T.visor);
 		visor.innerHTML =
 			'<figure class="visor-foto">' +
 				'<img alt="">' +
 				'<figcaption></figcaption>' +
 			'</figure>' +
 			'<div class="visor-controles">' +
-				'<button type="button" class="visor-anterior" title="Anterior (flecha izquierda)" aria-label="Anterior">&#8249;</button>' +
-				'<button type="button" class="visor-pase" title="Pase automático (espacio)" aria-label="Iniciar pase automático">&#9654;</button>' +
-				'<button type="button" class="visor-siguiente" title="Siguiente (flecha derecha)" aria-label="Siguiente">&#8250;</button>' +
+				'<button type="button" class="visor-anterior" title="' + T.anteriorTit + '" aria-label="' + T.anterior + '">&#8249;</button>' +
+				'<button type="button" class="visor-pase" title="' + T.paseTit + '" aria-label="' + T.iniciar + '">&#9654;</button>' +
+				'<button type="button" class="visor-siguiente" title="' + T.siguienteTit + '" aria-label="' + T.siguiente + '">&#8250;</button>' +
 				'<span class="visor-contador"></span>' +
-				'<button type="button" class="visor-cerrar" title="Cerrar (Esc)" aria-label="Cerrar">&#10005;</button>' +
+				'<button type="button" class="visor-cerrar" title="' + T.cerrarTit + '" aria-label="' + T.cerrar + '">&#10005;</button>' +
 			'</div>';
 		document.body.appendChild(visor);
 
@@ -98,7 +106,7 @@
 	function alternarPase() {
 		if (temporizador) { pararPase(); return; }
 		botonPase.innerHTML = "&#10074;&#10074;";
-		botonPase.setAttribute("aria-label", "Detener pase automático");
+		botonPase.setAttribute("aria-label", T.detener);
 		temporizador = setInterval(function () {
 			// Como en Highslide, el pase se detiene al llegar a la última foto
 			if (actual === fotos.length - 1) { pararPase(); return; }
@@ -111,7 +119,7 @@
 		clearInterval(temporizador);
 		temporizador = null;
 		botonPase.innerHTML = "&#9654;";
-		botonPase.setAttribute("aria-label", "Iniciar pase automático");
+		botonPase.setAttribute("aria-label", T.iniciar);
 	}
 
 	document.addEventListener("DOMContentLoaded", function () {

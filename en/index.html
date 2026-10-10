@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Real Instituto de Estudios Europeos</title>
+<meta name="description" content="The Real Instituto de Estudios Europeos (Royal Institute of European Studies, Zaragoza) runs a Master's Programme in European Union and other activities such as the European Academy of Jaca.">
+<meta name="author" content="Real Instituto de Estudios Europeos">
+<meta name="robots" content="index,follow">
+<link rel="stylesheet" href="../riee.css">
+<script src="../slideshow.js"></script>
+<style>
+/* Dos columnas: enlaces e imágenes a la izquierda, citas y noticias a la derecha */
+.columnas {
+	display: flex;
+	justify-content: center;
+	align-items: flex-start;
+	gap: 15px;
+}
+.izquierda {
+	width: 400px;
+	flex-shrink: 0;
+	text-align: center;
+}
+.derecha {
+	width: 730px;
+	flex-shrink: 0;
+}
+
+.galeria {
+	margin-top: 40px;
+}
+.galeria .pestana {
+	text-align: left;
+}
+.fotos {
+	margin-top: 12px;
+}
+/* Contenedores de los pases de diapositivas: slideshow.js pone aquí la imagen siguiente como fondo para el fundido */
+.diapositivas {
+	margin: 0 auto 4px;
+	width: 300px;
+	height: 225px;
+}
+/* Citas de prensa: todas en la misma celda de la rejilla, para que el recuadro tenga la altura de la más larga; solo se ve la que tiene .visible */
+.citas {
+	display: grid;
+	width: 306px;
+	max-width: 100%;
+	margin: 52px 0 0 8px;
+	font-family: Garamond, "EB Garamond", "Adobe Garamond Pro", "Times New Roman", serif;
+	font-size: 16px;
+	line-height: 1.2;
+	color: #ffffff;
+}
+.cita {
+	grid-area: 1 / 1;
+	margin: 0;
+	padding: 8px 10px;
+	opacity: 0;
+	transition: opacity 1s;
+}
+.cita.visible {
+	opacity: 1;
+}
+.cita blockquote {
+	margin: 0;
+}
+.cita figcaption {
+	text-align: right;
+}
+.cita.larga {
+	font-size: 13px;
+}
+@media (prefers-reduced-motion: reduce) {
+	.cita {
+		transition: none;
+	}
+}
+
+/* Últimas noticias de la portada */
+.ultimas {
+	margin: 4px 0 0;
+	padding: 0;
+	list-style: none;
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: medium;
+	color: #ffffff;
+}
+.ultimas li {
+	display: flex;
+	align-items: flex-start;
+	gap: 12px;
+	padding: 6px 4px;
+}
+.ultimas p {
+	flex: 1;
+	margin: 0;
+}
+.ultimas a {
+	color: #ffffff;
+	text-decoration: none;
+}
+.ultimas a:hover,
+.ultimas a:focus {
+	color: #ffff00;
+}
+.ultimas .resumen {
+	color: #bbbbbb;
+}
+.ultimas li > a {
+	flex: none;
+}
+.ultimas img {
+	display: block;
+	margin: 3px;
+}
+/* Móvil: miniaturas más pequeñas */
+@media (max-width: 560px) {
+	.ultimas img {
+		width: 110px;
+		height: auto;
+	}
+}
+
+/* Pantallas estrechas: una sola columna */
+@media (max-width: 1160px) {
+	.columnas {
+		flex-direction: column;
+		align-items: center;
+	}
+	/* Las columnas se deshacen para ordenar sus elementos por separado */
+	.izquierda,
+	.derecha {
+		display: contents;
+	}
+	.acerca { order: 1; }
+	.comite { order: 2; margin-top: 20px; }
+	.citas { order: 3; margin: 30px auto 20px; }
+	.noticias { order: 4; width: 100%; max-width: 730px; }
+	.galeria { order: 5; width: 100%; max-width: 400px; }
+	.columnas img {
+		max-width: 100%;
+		height: auto;
+	}
+}
+</style>
+<!-- plantilla: alternativos -->
+<link rel="alternate" hreflang="es" href="https://www.riee.eu/">
+<link rel="alternate" hreflang="en" href="https://www.riee.eu/en/">
+<link rel="alternate" hreflang="x-default" href="https://www.riee.eu/">
+<!-- fin plantilla -->
+</head>
+<body>
+
+<!-- plantilla: idiomas -->
+<nav class="idiomas" aria-label="Language">
+	<a href="../index.html" lang="es" hreflang="es" title="Español">ES</a>
+	<span aria-hidden="true">·</span>
+	<span class="actual" lang="en" title="English">EN</span>
+</nav>
+<!-- fin plantilla -->
+
+<header class="cabecera">
+	<img src="../Images/i_riee_cabecera.png" alt="Real Instituto de Estudios Europeos" width="696" height="144">
+</header>
+
+<div class="columnas">
+
+	<nav class="izquierda">
+		<a class="boton-caja acerca" href="riee.html">About the RIEE</a>
+
+		<section class="galeria">
+			<a class="pestana" href="galeria_fotografias.html"><span>Images to remember</span></a>
+			<div class="fotos">
+				<div id="Fotos1Background" class="diapositivas"><a href="galeria_fotografias.html"><img id="Fotos1" src="../gal_images/presentacion_300.jpg" alt="Historical photographs of the RIEE" width="300" height="225"></a></div>
+				<div id="Fotos2Background" class="diapositivas"><a href="galeria_fotografias.html"><img id="Fotos2" src="../gal_images/presentacion2_300.jpg" alt="Historical photographs of the RIEE" width="300" height="225"></a></div>
+			</div>
+		</section>
+	</nav>
+
+	<main class="derecha">
+		<a class="boton-texto comite" href="../comite.html" hreflang="es" title="In Spanish">Honorary Committee</a>
+
+		<div id="citas" class="citas" aria-label="Press quotes about the RIEE Master's Programme">
+			<figure class="cita visible"><blockquote>“A prestigious Master's”</blockquote><figcaption><em>El País</em>, 20-XI-1990</figcaption></figure>
+			<figure class="cita"><blockquote>“A leader in training specialists in European affairs for ten years”</blockquote><figcaption><em>ABC</em>, 11-I-1998</figcaption></figure>
+			<figure class="cita"><blockquote>“A prestigious Master's programme”</blockquote><figcaption><em>Heraldo de Aragón</em>, 11-IX-1998</figcaption></figure>
+			<figure class="cita"><blockquote>“A vintage Master's”</blockquote><figcaption>Pedro Solbes, <em>Aragón Press Association</em>, 30-XI-1998</figcaption></figure>
+			<figure class="cita"><blockquote>“A Master's recognised in Spain and across Europe”</blockquote><figcaption><em>El Periódico</em>, 13-X-2000</figcaption></figure>
+			<figure class="cita"><blockquote>“When it comes to the European Union, this is the Master's”</blockquote><figcaption>Javier Elorza, Albarracín, 22-XI-2002</figcaption></figure>
+			<figure class="cita"><blockquote>“A Master's built on great experience and dedication”</blockquote><figcaption>Loyola de Palacio, Strasbourg, 13-V-2003</figcaption></figure>
+			<figure class="cita"><blockquote>“A leading Institute”</blockquote><figcaption>Alberto Navarro, <em>Casa de América</em>, Madrid, 30-IX-2004</figcaption></figure>
+			<figure class="cita"><blockquote>“A high-quality Master's”</blockquote><figcaption>Javier Solana, <em>Council of the European Union</em>, Brussels, 6-IV-2006</figcaption></figure>
+			<figure class="cita"><blockquote>“A magnificent Master's”</blockquote><figcaption>Trinidad Jiménez, Ministry of Foreign Affairs, Madrid, 3-XII-2007</figcaption></figure>
+			<figure class="cita"><blockquote>“One of the leading centres for postgraduate European studies in the whole EU”</blockquote><figcaption>José Manuel Durão Barroso, Brussels, 11-III-2009</figcaption></figure>
+			<figure class="cita"><blockquote>“A well-earned reputation”</blockquote><figcaption>Juan Fernando López Aguilar, <em>Government of Aragón</em>, Zaragoza, 4-XII-2009</figcaption></figure>
+			<figure class="cita"><blockquote>“The best Master's in Spain and one of the best in Europe”</blockquote><figcaption>Daniel Calleja, <em>European Academy of Jaca</em>, 22-VII-2011</figcaption></figure>
+			<figure class="cita larga"><blockquote>“This Institute deserves credit for supporting […] the European and pro-European vocation that can only be built by developing human capital”</blockquote><figcaption>Felipe González, Zaragoza, 1-XII-2015</figcaption></figure>
+		</div>
+
+		<section class="noticias">
+			<a class="pestana" href="../noticias_titulares.html"><span>Latest news</span></a>
+			<p class="nota-idioma">News articles are available in Spanish only.</p>
+			<ul class="ultimas">
+				<li>
+					<p><span class="fecha">27/07/18</span> <a href="../noticias/noticia_180727.html">Josep Borrell, now Vice-President of the European Commission and High Representative for Foreign Affairs, closed the 30th Professional Master's Programme in European Union of the Real Instituto de Estudios Europeos in the Hall of Ambassadors of the Ministry and presented the graduating class with their final certificates.</a></p>
+					<a href="../noticias/noticia_180727.html" tabindex="-1"><img src="../fotos/180727b.jpg" alt="" width="180" height="136"></a>
+				</li>
+				<li>
+					<p><span class="fecha">15/02/18</span> <a href="../noticias/noticia_180215.html">Tribute to the Spanish democratic transition, chaired by <strong>Javier Solana Madariaga</strong>, former Minister of Foreign Affairs, former NATO Secretary General and first EU High Representative for the Common Foreign and Security Policy</a><br>
+					<span class="resumen">The tribute focused on seven leading figures from Aragón in the Transition</span></p>
+					<a href="../noticias/noticia_180215.html" tabindex="-1"><img src="../fotos/180215.jpg" alt="" width="180" height="136"></a>
+				</li>
+				<li>
+					<p><span class="fecha">11/05/16</span> <a href="../noticias/noticia_160511.html"><strong>His Majesty King Felipe VI</strong> receives a delegation of the Real Instituto de Estudios Europeos on its 30th anniversary</a></p>
+					<a href="../noticias/noticia_160511.html" tabindex="-1"><img src="../fotos/160511d.jpg" alt="" width="180" height="136"></a>
+				</li>
+				<li>
+					<p><span class="fecha">01/12/15</span> <a href="../noticias/noticia_151201.html">Former Prime Minister <strong>Felipe González</strong> gives the inaugural lecture of the 28th class of the Professional Master's Programme in European Union, in Zaragoza</a></p>
+					<a href="../noticias/noticia_151201.html" tabindex="-1"><img src="../fotos/151201.jpg" alt="" width="180" height="136"></a>
+				</li>
+				<li>
+					<p><span class="fecha">04/11/13</span> <a href="../noticias/noticia_131104.html">Message from the President of the European Central Bank, <strong>Mario Draghi</strong>, to the Real Instituto de Estudios Europeos</a></p>
+					<a href="../noticias/noticia_131104.html" tabindex="-1"><img src="../fotos/draghi2.jpg" alt="" width="180" height="136"></a>
+				</li>
+				<li>
+					<p><span class="fecha">11/03/09</span> <a href="../noticias/noticia_090311.html">The President of the European Commission, <strong>José Manuel Durão Barroso</strong>, with the Master's Programme of the Real Instituto de Estudios Europeos in Brussels</a></p>
+					<a href="../noticias/noticia_090311.html" tabindex="-1"><img src="../fotos/medalla_barroso.JPG" alt="" width="180" height="136"></a>
+				</li>
+			</ul>
+		</section>
+	</main>
+
+</div>
+
+<footer class="pie">
+	Postal address: Real Instituto de Estudios Europeos, Coso 32, 2º Of. 50004 Zaragoza (Spain) - Fax (+34) 976 233 958 -
+	E-mail <a href="mailto:info@riee.eu">info@riee.eu</a>
+	<br><a href="../aviso_legal.html" hreflang="es">Legal notice and privacy (in Spanish)</a>
+</footer>
+
+<script>
+// Citas de prensa: una cada 5 segundos, con fundido
+(function () {
+	var citas = document.querySelectorAll("#citas .cita"), actual = 0;
+	setInterval(function () {
+		citas[actual].classList.remove("visible");
+		actual = (actual + 1) % citas.length;
+		citas[actual].classList.add("visible");
+	}, 5000);
+})();
+RunSlideShow("Fotos1", "Fotos1Background", "../gal_images/presentacion_300.jpg;../gal_images/presentacion_300.jpg;../gal_images/presentacion3_300.jpg;"
+	+ "../gal_images/presentacion3_300.jpg;../gal_images/presentacion5_300.jpg;"
+	+ "../gal_images/presentacion5_300.jpg", 4);
+RunSlideShow("Fotos2", "Fotos2Background", "../gal_images/presentacion2_300.jpg;../gal_images/presentacion4_300.jpg;../gal_images/presentacion4_300.jpg;"
+	+ "../gal_images/presentacion6_300.jpg;../gal_images/presentacion6_300.jpg;"
+	+ "../gal_images/presentacion2_300.jpg", 4);
+</script>
+
+<script data-goatcounter="https://riee.goatcounter.com/count" async src="https://gc.zgo.at/count.js"></script>
+</body>
+</html>

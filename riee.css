@@ -9,6 +9,40 @@ img {
 	vertical-align: top;
 }
 
+/* Selector de idioma (ES · EN · FR), arriba a la derecha. Lo genera actualizar_plantillas.pl */
+.idiomas {
+	position: absolute;
+	top: 10px;
+	right: 18px;
+	font-family: Calibri, Carlito, "Segoe UI", Arial, sans-serif;
+	font-size: 15px;
+	color: #7f9cc0;
+}
+.idiomas a,
+.idiomas .actual {
+	padding: 2px 4px;
+}
+.idiomas a {
+	color: #d9d9d9;
+	text-decoration: none;
+}
+.idiomas a:hover,
+.idiomas a:focus {
+	color: #ffff00;
+	text-decoration: underline;
+}
+.idiomas .actual {
+	color: #ffff00;
+	font-weight: bold;
+}
+@media (max-width: 760px) {
+	.idiomas {
+		position: static;
+		margin: 0 4px 6px;
+		text-align: right;
+	}
+}
+
 /* Cabecera con el logotipo */
 .cabecera {
 	margin: 2px 0 70px;
@@ -197,6 +231,13 @@ a.boton-texto:focus,
 }
 .nota {
 	color: #bbbbbb;
+	font-size: small;
+}
+/* Aviso de contenido solo en español, en las páginas traducidas */
+.nota-idioma {
+	margin: 6px 4px 0;
+	color: #bbbbbb;
+	font-family: Arial, Helvetica, sans-serif;
 	font-size: small;
 }
 .volver {
