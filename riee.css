@@ -103,20 +103,6 @@ a.boton-texto:focus,
 	color: #999999;
 }
 
-/* Pie con el enlace al aviso legal (todas las páginas salvo la portada) */
-.pie-legal {
-	margin: 50px 0 10px;
-	text-align: center;
-	font-family: Arial, Helvetica, sans-serif;
-	font-size: small;
-}
-.pie-legal a {
-	color: #bbbbbb;
-}
-.pie-legal a:hover,
-.pie-legal a:focus {
-	color: #ffff00;
-}
 
 
 /* Contenido de texto: letra blanca sobre el fondo azul, como las noticias */
