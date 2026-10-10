@@ -118,12 +118,6 @@ a.boton-texto:focus,
 	color: #ffff00;
 }
 
-/* Datos que faltan por completar */
-.pendiente {
-	background-color: #ffff66;
-	color: #003366;
-	padding: 0 4px;
-}
 
 /* Contenido de texto: letra blanca sobre el fondo azul, como las noticias */
 .contenido {
